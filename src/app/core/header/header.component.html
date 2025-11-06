@@ -1,1 +1,24 @@
-<p>header works!</p>
+<header>
+
+    <div class="header-nav">
+
+        <mat-button-toggle-group class="lang-toggle" [value]="lang()" (change)="onLangChange($event.value)"
+            [hideSingleSelectionIndicator]="true" aria-label="Sprache wählen">
+            <mat-button-toggle value="en" aria-label="Englisch">EN</mat-button-toggle>
+            <mat-button-toggle value="de" aria-label="Deutsch">DE</mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <nav class="main-nav" aria-label="Hauptnavigation">
+            <a href="#about">{{ isGerman() ? 'Über mich' : 'About me' }}</a>
+            <a href="#skills">{{ isGerman() ? 'Fähigkeiten' : 'Skills' }}</a>
+            <a href="#projects">{{ isGerman() ? 'Projekte' : 'Projects' }}</a>
+        </nav>
+
+    </div>
+
+    <div class="logo" aria-label="Logo Dominik Rapp">
+        <span class="letters"><span class="d-mirrored">D</span><span class="r-normal">R</span></span>
+        <span class="name"><span class="name-split">Dominik</span><span>Rapp</span></span>
+    </div>
+
+</header>

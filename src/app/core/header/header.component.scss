@@ -1,0 +1,142 @@
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    font-weight: 900;
+    font-family: "Fira Code Var";
+
+    .letters {
+        display: inline-flex;
+        transform: rotate(90deg);
+        transform-origin: center;
+    }
+
+    .name {
+        line-height: 0.8;
+        -webkit-text-stroke: 0 var(--color-text-white);
+        transition: color 175ms ease, -webkit-text-stroke-color 175ms ease, -webkit-text-stroke-width 175ms ease;
+    }
+}
+
+.d-mirrored,
+.r-normal {
+    display: inline-block;
+    font-size: 34px;
+    color: var(--color-accent);
+    -webkit-text-stroke: 0 var(--color-accent);
+    transition: color 175ms ease, -webkit-text-stroke-color 175ms ease, -webkit-text-stroke-width 175ms ease;
+    font-family: Playfair Display Var;
+}
+
+.d-mirrored {
+    transform: scaleX(-1);
+    transform-origin: center;
+}
+
+.r-normal {
+    margin-left: -5px;
+}
+
+.name-split {
+    display: flex;
+    align-items: center;
+}
+
+.logo:hover .d-mirrored,
+.logo:hover .r-normal {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--color-accent);
+    cursor: pointer;
+}
+
+.logo:hover .name {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--color-text-white);
+    cursor: pointer;
+}
+
+///////////////////////////////////////////////////////////
+
+.lang-toggle {
+    position: relative;
+    background: transparent;
+    border: 0;
+    border-radius: 25px;
+    font-family: "Fira Code Var";
+    color: var(--color-box-hover);
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 2px solid var(--color-accent);
+        border-radius: 25px;
+        pointer-events: none;
+        transition: border-color 175ms ease;
+    }
+
+    &:hover::before {
+        border-color: var(--color-text-white);
+    }
+
+    &:hover .mat-button-toggle:not(.mat-button-toggle-checked) {
+        color: var(--color-accent);
+    }
+
+    .mat-button-toggle {
+        height: 25px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+        transition: color 175ms ease;
+    }
+
+    .mat-button-toggle-checked {
+        background: var(--color-accent);
+        color: var(--color-text-white);
+        border-radius: 25px;
+        position: relative;
+        z-index: 1;
+        font-weight: 900;
+    }
+}
+
+///////////////////////////////////////////////////////////
+
+.main-nav a {
+    color: var(--color-text-white);
+    text-decoration: none;
+    font-size: 20px;
+    font-family: Fira Code Var;
+}
+
+
+///////////////////////////////////////////////////////////
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 80px;
+    padding-right: 80px;
+    position: absolute;
+    height: 100px;
+    background: linear-gradient(to bottom,
+            rgba(28, 28, 28, 0.8) 0%,
+            rgba(28, 28, 28, 0.05) 100%);
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+}
