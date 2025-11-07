@@ -56,6 +56,12 @@ body {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: block;
+  width: 100%;
+  max-width: var(--page-max);
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: hidden;
 }
 
 img,
@@ -113,3 +119,8 @@ footer {
     display: none;
   }
 }
+
+/* nur Debug */
+// * {
+//   outline: 1px solid rgba(255, 0, 0, 0.2);
+// }

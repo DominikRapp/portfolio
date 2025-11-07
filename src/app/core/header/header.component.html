@@ -9,16 +9,33 @@
         </mat-button-toggle-group>
 
         <nav class="main-nav" aria-label="Hauptnavigation">
-            <a href="#about">{{ isGerman() ? 'Über mich' : 'About me' }}</a>
-            <a href="#skills">{{ isGerman() ? 'Fähigkeiten' : 'Skills' }}</a>
-            <a href="#projects">{{ isGerman() ? 'Projekte' : 'Projects' }}</a>
+            <a href="#about" (click)="onNavClick('about')" [class.is-active]="activeId()==='about'"
+                [attr.aria-current]="activeId()==='about' ? 'page' : null">
+                {{ isGerman() ? 'Über mich' : 'About me' }}
+            </a>
+
+            <a href="#skills" (click)="onNavClick('skills')" [class.is-active]="activeId()==='skills'"
+                [attr.aria-current]="activeId()==='skills' ? 'page' : null">
+                {{ isGerman() ? 'Fähigkeiten' : 'Skills' }}
+            </a>
+
+            <a href="#projects" (click)="onNavClick('projects')" [class.is-active]="activeId()==='projects'"
+                [attr.aria-current]="activeId()==='projects' ? 'page' : null">
+                {{ isGerman() ? 'Projekte' : 'Projects' }}
+            </a>
         </nav>
 
     </div>
 
-    <div class="logo" aria-label="Logo Dominik Rapp">
-        <span class="letters"><span class="d-mirrored">D</span><span class="r-normal">R</span></span>
-        <span class="name"><span class="name-split">Dominik</span><span>Rapp</span></span>
-    </div>
+    <a class="logo" href="#home" aria-label="Zur Startseite: Dominik Rapp">
+        <span class="letters">
+            <span class="d-mirrored">D</span>
+            <span class="r-normal">R</span>
+        </span>
+        <span class="name">
+            <span class="name-split">Dominik</span>
+            <span>Rapp</span>
+        </span>
+    </a>
 
 </header>
