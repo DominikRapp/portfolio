@@ -1,0 +1,272 @@
+.skills-button {
+    margin-top: 42px;
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 150px;
+        border-radius: 50px;
+        cursor: pointer;
+        box-sizing: border-box;
+        background-color: transparent;
+        color: var(--color-text-white);
+        font-size: 18px;
+        font-family: Karla Var;
+        border: 1px solid var(--color-text-white);
+        text-decoration: none;
+        transition: color 175ms ease, border-color 175ms ease, background-color 175ms ease;
+
+        &:hover {
+            color: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+    }
+}
+
+.skill-section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 150px 80px;
+    font-family: Karla Var;
+    color: var(--color-text-white);
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-bg-start);
+    --circle-radius: 150px;
+    --circle-blur: 100px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: calc(-1 * var(--circle-radius));
+        width: calc(var(--circle-radius) * 2);
+        height: calc(var(--circle-radius) * 2);
+        transform: translateY(-50%);
+        background: var(--color-bg-end);
+        border-radius: 50%;
+        filter: blur(var(--circle-blur));
+        -webkit-filter: blur(var(--circle-blur));
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    >* {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.section-kicker {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 0 24px 0;
+    color: var(--color-accent);
+}
+
+.technologies {
+    width: 568px;
+}
+
+.technologies-card {
+    width: 568px;
+    height: 516px;
+    border-radius: 30px;
+    border: 1px solid var(--color-accent);
+    background: var(--color-accent-transparent);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 20px 24px 24px 24px;
+
+    h2 {
+        margin: 0 0 50px 0;
+        font-family: Fira Code Var;
+        font-size: 64px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: var(--color-accent);
+    }
+}
+
+.lead {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 400;
+}
+
+.question {
+    font-size: 24px;
+    margin: 32px 0 24px 0;
+    font-weight: 700;
+    font-family: Fira Code Var;
+
+    .accent {
+        color: var(--color-accent);
+        letter-spacing: 2px;
+    }
+}
+
+.note {
+    font-size: 16px;
+    margin: 0;
+    color: var(--color-text-white-transparent);
+    max-width: 300px;
+    font-weight: 400;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 160px);
+    grid-auto-rows: 140px;
+    list-style: none;
+    padding: 0;
+    margin: 60px 0 0 0;
+}
+
+.skill-item figure {
+    display: grid;
+    grid-template-rows: 72px auto;
+    justify-items: center;
+    align-items: center;
+    margin: 0;
+    text-align: center;
+}
+
+.skill-item figure>svg {
+    width: 56px;
+    height: 56px;
+    transition: transform 160ms ease;
+    transform-origin: center;
+    will-change: transform;
+}
+
+.skill-item:hover svg,
+.skill-item:focus-within svg {
+    transform: scale(1.08);
+}
+
+.skill-item figcaption {
+    display: block;
+    max-width: 80px;
+    margin: 12px auto 0;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--color-text-white);
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+}
+
+.skills-grid .skill-item:last-child:hover figcaption,
+.skills-grid .skill-item:last-child:focus-within figcaption {
+    color: var(--color-accent);
+    transition: color 160ms ease;
+}
+
+.skill-item a:focus-visible,
+.btn:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.growth-item {
+
+    figure.has-bubble {
+        position: relative;
+    }
+
+    .bubble {
+        position: absolute;
+        left: 50%;
+        bottom: 120px;
+        transform: translateX(calc(-50% + 25px)) translateY(8px);
+        background: var(--color-icon);
+        color: #0b0b0b;
+        font-family: Karla Var;
+        font-size: 14px;
+        line-height: 18px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+        width: max-content;
+        max-width: 188px;
+        text-align: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 120ms ease, transform 120ms ease;
+        z-index: 2;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-205%);
+            border-left: 16px solid transparent;
+            border-right: 16px solid transparent;
+            border-top: 16px solid var(--color-icon);
+        }
+
+        .bubble-intro {
+            display: block;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: var(--color-accent);
+            text-align: center;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-items: center;
+            gap: 10px 16px;
+        }
+
+        .tech {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80px;
+            text-align: center;
+            gap: 6px;
+        }
+
+        .tech-icon {
+            width: 32px;
+            height: auto;
+        }
+
+        .tech>figcaption {
+            margin-top: 0;
+            line-height: 16px;
+            font-size: 12px;
+            color: var(--color-accent);
+        }
+    }
+
+    .has-bubble:hover .bubble,
+    .has-bubble:focus .bubble,
+    .has-bubble:focus-visible .bubble {
+        opacity: 1;
+        transform: translateX(calc(-50% + 50px)) translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .skill-item figure>svg,
+    .skills-button .btn,
+    .growth-item .bubble {
+        transition: none;
+    }
+}

@@ -1,0 +1,141 @@
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    padding-left: 80px;
+    padding-right: 80px;
+    font-family: Karla Var;
+    color: var(--color-text-white);
+}
+
+.photo-card {
+    position: relative;
+    width: 568px;
+    height: 568px;
+    margin: 0;
+    border-radius: 30px;
+    overflow: visible;
+    align-self: start;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: -41px;
+        top: 0;
+        width: calc(100% + 41px);
+        height: calc(100% + 41px);
+        --line-gap: 28px;
+        --line-thick: 1px;
+        background-image: repeating-linear-gradient(45deg,
+                transparent 0px,
+                transparent var(--line-gap),
+                var(--color-accent) var(--line-gap),
+                var(--color-accent) calc(var(--line-gap) + var(--line-thick)));
+
+        clip-path: polygon(0 30px,
+                41px 30px,
+                41px calc(100% - 41px),
+                calc(100% - 30px) calc(100% - 41px),
+                calc(100% - 30px) 100%,
+                0 100%);
+        opacity: 0;
+        transition: opacity 180ms ease-in-out;
+        pointer-events: none;
+    }
+
+    &:hover::before {
+        opacity: 1;
+    }
+
+    &::after {
+        content: none;
+    }
+
+    img {
+        display: block;
+        width: 568px;
+        height: 568px;
+        object-fit: cover;
+        border-radius: 30px;
+    }
+}
+
+.who-i-am {
+    width: 568px;
+    color: var(--color-accent);
+
+    h4 {
+        font-size: 24px;
+        font-weight: 500;
+        margin: 100px 0 24px 0;
+    }
+}
+
+.about-card {
+    width: 568px;
+    height: 516px;
+    border-radius: 30px;
+    background-color: var(--color-accent-transparent);
+    border: 1px solid var(--color-accent);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 20px 24px 24px 24px;
+
+    h2 {
+        font-family: Fira Code Var;
+        color: var(--color-accent);
+        font-size: 64px;
+        font-weight: 700;
+        margin: 0px 0 50px 0;
+        letter-spacing: 1px;
+
+        .lead {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--color-text-white);
+            margin: 0 0 18px 0;
+        }
+    }
+}
+
+.icon-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    row-gap: 16px;
+}
+
+.icon-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+
+    .icon {
+        display: inline-flex;
+        width: 28px;
+        height: 28px;
+        flex: 0 0 28px;
+    }
+
+    .item-text {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 400;
+        color: var(--color-text-white-transparent);
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}

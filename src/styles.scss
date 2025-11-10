@@ -6,10 +6,12 @@
   --color-bg: #1c1c1c;
   --color-text-error: #c56a6a;
   --color-text-white: #FFFFFF;
+  --color-text-white-transparent: rgba(255, 255, 255, 0.8);
   --color-text-lightgrey: #d4d4d4;
   --color-icon: #FFFFFF;
   --color-bg-banner: #434343;
   --color-accent: #3dcfb6;
+  --color-accent-transparent: rgba(61, 207, 182, 0.1);
   --color-set-dot: #6ad7bf;
   --color-bg-end: #08463b;
   --color-bg-start: #1c1c1c;
@@ -82,23 +84,15 @@ section,
 footer {
   display: block;
   width: 100%;
+  max-width: var(--page-max);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 body>* {
   display: block;
   width: 100%;
   max-width: var(--page-max);
-}
-
-header,
-main,
-section,
-footer {
-  display: block;
-  width: 100%;
-  max-width: var(--page-max);
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .cursor-shadow {
