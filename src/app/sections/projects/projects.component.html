@@ -1,1 +1,65 @@
-<p>projects works!</p>
+<section class="projects-section" aria-labelledby="projects-title">
+    <p class="section-eyebrow">Portfolio</p>
+    <h2 id="projects-title" class="section-title">Featured Projects</h2>
+
+    <p class="section-lead">
+        Explore a selection of my work here – Interact with projects to see my skills in action.
+    </p>
+
+    <ul class="project-list">
+        <li class="project-item">
+            <button class="project-link" type="button" aria-label="Open Join project overlay" aria-haspopup="dialog"
+                (click)="openProject('join')" (mouseenter)="showPreview('assets/img/join.jpg','top')"
+                (focus)="showPreview('assets/img/join.jpg','top')" (mouseleave)="hidePreview()" (blur)="hidePreview()">
+                <span class="project-name">Join</span>
+                <span class="tech-list" aria-label="Technologies">
+                    <span>HTML</span><span class="tech-divider" aria-hidden="true">|</span>
+                    <span>CSS</span><span class="tech-divider" aria-hidden="true">|</span>
+                    <span>JavaScript</span><span class="tech-divider" aria-hidden="true">|</span>
+                    <span>Firebase</span>
+                </span>
+            </button>
+        </li>
+
+        <li class="project-item">
+            <button class="project-link" type="button" aria-label="Open El Pollo Loco project overlay"
+                aria-haspopup="dialog" (click)="openProject('epl')"
+                (mouseenter)="showPreview('assets/img/epl.jpg','middle')"
+                (focus)="showPreview('assets/img/epl.jpg','middle')" (mouseleave)="hidePreview()"
+                (blur)="hidePreview()">
+                <span class="project-name">El Pollo Loco</span>
+                <span class="tech-list" aria-label="Technologies">
+                    <span>HTML</span><span class="tech-divider" aria-hidden="true">|</span>
+                    <span>CSS</span><span class="tech-divider" aria-hidden="true">|</span>
+                    <span>JavaScript</span><span class="tech-divider" aria-hidden="true">|</span>
+                    <span>Firebase</span>
+                </span>
+            </button>
+        </li>
+
+        <li class="project-item last-project-border-bottom">
+            <button class="project-link" type="button" aria-label="Open DA Bubble project overlay"
+                aria-haspopup="dialog" (click)="openProject('daba')"
+                (mouseenter)="showPreview('assets/img/daba.jpg','bottom')"
+                (focus)="showPreview('assets/img/daba.jpg','bottom')" (mouseleave)="hidePreview()"
+                (blur)="hidePreview()">
+                <span class="project-name">DA Bubble</span>
+                <span class="tech-list" aria-label="Technologies">
+                    <span>HTML</span><span class="tech-divider" aria-hidden="true">|</span>
+                    <span>CSS</span><span class="tech-divider" aria-hidden="true">|</span>
+                    <span>Angular</span><span class="tech-divider" aria-hidden="true">|</span>
+                    <span>TypeScript</span><span class="tech-divider" aria-hidden="true">|</span>
+                    <span>Firebase</span>
+                </span>
+            </button>
+        </li>
+    </ul>
+
+    <div class="project-preview" [class.show]="previewVisible" [class.pos-top]="previewPos==='top'"
+        [class.pos-middle]="previewPos==='middle'" [class.pos-bottom]="previewPos==='bottom'" aria-hidden="true">
+        @if (previewSrc) {
+        <img [src]="previewSrc" alt="" draggable="false" />
+        }
+        <div class="preview-stripes" aria-hidden="true"></div>
+    </div>
+</section>

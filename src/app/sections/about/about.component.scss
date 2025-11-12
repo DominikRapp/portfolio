@@ -1,7 +1,7 @@
 .about-section {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: 150px;
     padding-bottom: 150px;
     padding-left: 80px;
@@ -34,12 +34,9 @@
                 var(--color-accent) var(--line-gap),
                 var(--color-accent) calc(var(--line-gap) + var(--line-thick)));
 
-        clip-path: polygon(0 30px,
-                41px 30px,
-                41px calc(100% - 41px),
+        clip-path: polygon(0 30px, 41px 30px, 41px calc(100% - 41px),
                 calc(100% - 30px) calc(100% - 41px),
-                calc(100% - 30px) 100%,
-                0 100%);
+                calc(100% - 30px) 100%, 0 100%);
         opacity: 0;
         transition: opacity 180ms ease-in-out;
         pointer-events: none;

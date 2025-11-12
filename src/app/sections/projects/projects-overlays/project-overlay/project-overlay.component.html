@@ -1,0 +1,76 @@
+<article class="overlay-card" aria-labelledby="overlay-title" aria-describedby="overlay-desc">
+    <div class="overlay-left">
+        <header>
+            <p class="overlay-id" aria-hidden="true">{{ current.id }}</p>
+            <h2 id="overlay-title" class="overlay-title">{{ current.title }}</h2>
+        </header>
+
+        <div class="overlay-body">
+            <div class="overlay-text">
+                <p class="overlay-question">What is this project about?</p>
+                <p id="overlay-desc" class="overlay-desc">{{ current.description }}</p>
+
+                <ul class="tech-badges" aria-label="Technologies">
+                    @for (tech of current.techs; track tech) {
+                    <li class="badge">
+                        <span class="badge-icon" [innerHTML]="getTechIcon(tech)"></span>
+                        <span class="badge-text">{{ tech }}</span>
+                    </li>
+                    }
+                </ul>
+
+                <div class="overlay-actions">
+                    @if (current.links?.github) {
+                    <a class="btn btn-gap" [href]="current.links!.github" target="_blank" rel="noopener"
+                        aria-label="Open GitHub repository for {{ current.title }}">
+                        GitHub
+                        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true" focusable="false">
+                            <path
+                                d="M9.19542 1.85729L0.918125 10.1267C0.802708 10.2419 0.678542 10.2948 0.545625 10.2852C0.41257 10.2756 0.288333 10.2131 0.172917 10.0977C0.057639 9.98229 0 9.85597 0 9.71875C0 9.58153 0.057639 9.45521 0.172917 9.33979L8.42146 1.08333H1.23708C1.08361 1.08333 0.954931 1.03181 0.851042 0.92875C0.747292 0.825695 0.695417 0.698056 0.695417 0.545834C0.695417 0.393472 0.747292 0.264444 0.851042 0.15875C0.954931 0.0529166 1.08361 0 1.23708 0H9.60875C9.79861 0 9.95771 0.0641665 10.086 0.1925C10.2145 0.320972 10.2788 0.48007 10.2788 0.669792V9.04167C10.2788 9.19514 10.2272 9.32375 10.1242 9.4275C10.0211 9.53139 9.89347 9.58333 9.74125 9.58333C9.58889 9.58333 9.45979 9.53139 9.35396 9.4275C9.24826 9.32375 9.19542 9.19514 9.19542 9.04167V1.85729Z"
+                                fill="var(--color-accent)" />
+                        </svg>
+                    </a>
+                    }
+                    @if (current.links?.live) {
+                    <a class="btn btn-gap" [href]="current.links!.live" target="_blank" rel="noopener"
+                        aria-label="Open live demo of {{ current.title }}">
+                        Live Test
+                        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true" focusable="false">
+                            <path
+                                d="M9.19542 1.85729L0.918125 10.1267C0.802708 10.2419 0.678542 10.2948 0.545625 10.2852C0.41257 10.2756 0.288333 10.2131 0.172917 10.0977C0.057639 9.98229 0 9.85597 0 9.71875C0 9.58153 0.057639 9.45521 0.172917 9.33979L8.42146 1.08333H1.23708C1.08361 1.08333 0.954931 1.03181 0.851042 0.92875C0.747292 0.825695 0.695417 0.698056 0.695417 0.545834C0.695417 0.393472 0.747292 0.264444 0.851042 0.15875C0.954931 0.0529166 1.08361 0 1.23708 0H9.60875C9.79861 0 9.95771 0.0641665 10.086 0.1925C10.2145 0.320972 10.2788 0.48007 10.2788 0.669792V9.04167C10.2788 9.19514 10.2272 9.32375 10.1242 9.4275C10.0211 9.53139 9.89347 9.58333 9.74125 9.58333C9.58889 9.58333 9.45979 9.53139 9.35396 9.4275C9.24826 9.32375 9.19542 9.19514 9.19542 9.04167V1.85729Z"
+                                fill="var(--color-accent)" />
+                        </svg>
+                    </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay-right">
+        <button type="button" class="close-btn" aria-label="Close project overlay" (click)="close()">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M8.93957 10.3615L1.75507 17.546C1.54207 17.7587 1.30607 17.8587 1.04707 17.846C0.788067 17.833 0.552234 17.7202 0.339568 17.5075C0.126901 17.2948 0.0205673 17.0525 0.0205673 16.7805C0.0205673 16.5088 0.126901 16.2665 0.339568 16.0535L7.48557 8.9075L0.301068 1.773C0.0884014 1.56 -0.0115986 1.31767 0.00106805 1.046C0.014068 0.774336 0.126901 0.532 0.339568 0.319C0.552234 0.106334 0.794568 0 1.06657 0C1.33823 0 1.58057 0.106334 1.79357 0.319L8.93957 7.5035L16.0741 0.319C16.2871 0.106334 16.5231 0 16.7821 0C17.0411 0 17.2769 0.106334 17.4896 0.319C17.7102 0.539667 17.8206 0.783835 17.8206 1.0515C17.8206 1.3195 17.7102 1.56 17.4896 1.773L10.3436 8.9075L17.5281 16.092C17.7407 16.305 17.8471 16.541 17.8471 16.8C17.8471 17.059 17.7407 17.2948 17.5281 17.5075C17.3074 17.7282 17.0632 17.8385 16.7956 17.8385C16.5276 17.8385 16.2871 17.7282 16.0741 17.5075L8.93957 10.3615Z"
+                    fill="var(--color-icon)" />
+            </svg>
+        </button>
+
+        <figure class="overlay-media">
+            <img [src]="current.image" alt="{{ current.title }} preview" width="560" height="340" draggable="false">
+        </figure>
+
+        <footer class="overlay-footer">
+            <button type="button" class="link-btn" (click)="nextProject()" aria-label="Open next project">
+                Next project
+                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M16.105 9.74506H0.666667C0.476889 9.74506 0.318333 9.68139 0.191 9.55406C0.0636665 9.42673 0 9.26817 0 9.07839C0 8.88862 0.0636665 8.73006 0.191 8.60273C0.318333 8.47539 0.476889 8.41173 0.666667 8.41173H16.105L8.854 1.16039C8.724 1.03062 8.656 0.877615 8.65 0.701393C8.644 0.525393 8.71456 0.363838 8.86167 0.216727C9.00856 0.0749489 9.16578 0.00272669 9.33333 6.00198e-05C9.50089 -0.00238442 9.65811 0.0698378 9.805 0.216727L17.9127 8.32439C18.0291 8.44084 18.1108 8.55973 18.1577 8.68106C18.2048 8.80239 18.2283 8.93484 18.2283 9.07839C18.2283 9.22195 18.2048 9.35439 18.1577 9.47573C18.1108 9.59706 18.0291 9.71595 17.9127 9.83239L9.805 17.9401C9.68033 18.0647 9.52867 18.1314 9.35 18.1401C9.17133 18.1485 9.00856 18.0818 8.86167 17.9401C8.71456 17.7929 8.641 17.6344 8.641 17.4644C8.641 17.2942 8.71456 17.1356 8.86167 16.9887L16.105 9.74506Z"
+                        fill="var(--color-accent)" />
+                </svg>
+            </button>
+        </footer>
+    </div>
+</article>

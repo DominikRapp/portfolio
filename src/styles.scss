@@ -114,7 +114,33 @@ body>* {
   }
 }
 
+
+/* Nur diesen Dialog anpassen */
+.project-dialog-panel .mat-mdc-dialog-surface {
+  /* WICHTIG: Variablen von Material überschreiben */
+  --mat-dialog-container-shape: 16px;
+  /* Border-Radius */
+  --mat-dialog-container-color: transparent;
+  /* Hintergrundfarbe */
+  /* Fallbacks, falls ein Theme die Vars ignoriert */
+  border-radius: 30px;
+  background-color: transparent;
+  /* Optional: Inhalt sauber maskieren */
+  overflow: hidden;
+}
+
+/* Optional: eigener Hintergrund für deinen Inhalt */
+.project-dialog-panel .overlay-card {
+  border-radius: 16px;
+  /* matcht die Surface */
+  background: linear-gradient(35deg,
+      var(--color-bg-start) 0%,
+      var(--color-bg-start) 40%,
+      var(--color-bg-end) 90%,
+      var(--color-bg-end) 100%);
+}
+
 /* nur Debug */
 // * {
-//   outline: 1px solid rgba(255, 0, 0, 0.2);
+//   outline: 1px solid red;
 // }

@@ -33,7 +33,7 @@
 .skill-section {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 150px 80px;
     font-family: Karla Var;
     color: var(--color-text-white);
@@ -186,31 +186,28 @@
 
     .bubble {
         position: absolute;
-        left: 50%;
+        left: 35px;
         bottom: 120px;
-        transform: translateX(calc(-50% + 25px)) translateY(8px);
         background: var(--color-icon);
-        color: #0b0b0b;
         font-family: Karla Var;
         font-size: 14px;
         line-height: 18px;
         padding: 10px 12px;
         border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
         width: max-content;
         max-width: 188px;
         text-align: center;
         opacity: 0;
         pointer-events: none;
-        transition: opacity 120ms ease, transform 120ms ease;
         z-index: 2;
+        transition: opacity 175ms ease-in-out;
 
         &::after {
             content: "";
             position: absolute;
             top: 100%;
             left: 50%;
-            transform: translateX(-205%);
+            transform: translateX(-200%);
             border-left: 16px solid transparent;
             border-right: 16px solid transparent;
             border-top: 16px solid var(--color-icon);
@@ -226,17 +223,17 @@
         }
 
         .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            justify-items: center;
-            gap: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
         }
 
         .tech {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 80px;
+            width: 40px;
             text-align: center;
             gap: 6px;
         }
@@ -258,7 +255,6 @@
     .has-bubble:focus .bubble,
     .has-bubble:focus-visible .bubble {
         opacity: 1;
-        transform: translateX(calc(-50% + 50px)) translateY(0);
     }
 }
 
