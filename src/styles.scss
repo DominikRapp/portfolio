@@ -17,6 +17,7 @@
   --color-bg-start: #1c1c1c;
   --color-box-hover: #2f5b54;
   --color-text-icon-hover: #3dcfb6;
+  --color-fadeout: #1c1c1c;
 }
 
 @font-face {
@@ -114,25 +115,16 @@ body>* {
   }
 }
 
-
-/* Nur diesen Dialog anpassen */
 .project-dialog-panel .mat-mdc-dialog-surface {
-  /* WICHTIG: Variablen von Material überschreiben */
   --mat-dialog-container-shape: 16px;
-  /* Border-Radius */
   --mat-dialog-container-color: transparent;
-  /* Hintergrundfarbe */
-  /* Fallbacks, falls ein Theme die Vars ignoriert */
   border-radius: 30px;
   background-color: transparent;
-  /* Optional: Inhalt sauber maskieren */
   overflow: hidden;
 }
 
-/* Optional: eigener Hintergrund für deinen Inhalt */
 .project-dialog-panel .overlay-card {
   border-radius: 16px;
-  /* matcht die Surface */
   background: linear-gradient(35deg,
       var(--color-bg-start) 0%,
       var(--color-bg-start) 40%,

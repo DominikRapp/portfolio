@@ -1,0 +1,40 @@
+.feedback-card {
+    background-color: #2a4b45;
+    border-radius: 30px;
+    padding: 40px 60px;
+    color: var(--color-text-white);
+    font-family: Karla Var;
+    height: 350px;
+    width: 700px;
+    border: 1px solid var(--color-accent);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.feedback-text {
+    font-size: 18px;
+}
+
+.feedback-author {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: var(--color-text-lightgrey);
+    margin-top: 12px;
+}
+
+.feedback-author::before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: var(--color-text-lightgrey);
+    margin-right: 12px;
+}
+
+.feedback-quote {
+    position: absolute;
+    left: -42px;
+    top: -20px;
+    pointer-events: none;
+}

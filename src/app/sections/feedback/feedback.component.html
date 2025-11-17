@@ -1,1 +1,43 @@
-<p>feedback works!</p>
+<section class="feedback-section" aria-labelledby="feedback-title" tabindex="0">
+    <div class="feedback-header">
+        <h3 id="feedback-title" class="feedback-title">
+            What my colleagues say about me
+        </h3>
+    </div>
+
+    <div class="feedback-viewport fadeout-shadow" role="region" aria-roledescription="carousel"
+        aria-label="Colleagues feedback">
+        <div class="card-section">
+            <app-feedback-card *ngFor="let item of items; let i = index; trackBy: trackByIndex" class="card"
+                [ngClass]="{ 'is-prev': i === prevIndex, 'is-active': i === activeIndex, 'is-next': i === nextIndex }"
+                [text]="item.text" [author]="item.author" [role]="item.role" [showQuote]="i === activeIndex">
+            </app-feedback-card>
+        </div>
+    </div>
+
+    <div class="feedback-controls" role="group" aria-label="Feedback navigation">
+        <button type="button" class="nav-btn nav-btn-prev" (click)="prev()" aria-label="Show previous feedback">
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path
+                    d="M2.12333 9.72904L9.37433 16.9804C9.50433 17.1102 9.57233 17.2632 9.57833 17.4394C9.58433 17.6154 9.51378 17.7769 9.36667 17.924C9.21978 18.0658 9.06256 18.138 8.895 18.1407C8.72745 18.1432 8.57022 18.0709 8.42333 17.924L0.315667 9.81638C0.199222 9.69993 0.117556 9.58105 0.070667 9.45971C0.0235559 9.33838 0 9.20593 0 9.06238C0 8.91882 0.0235559 8.78638 0.070667 8.66504C0.117556 8.54371 0.199222 8.42482 0.315667 8.30838L8.42333 0.200712C8.548 0.0760454 8.69967 0.0093787 8.87833 0.000712032C9.057 -0.00773241 9.21978 0.0589342 9.36667 0.200712C9.51378 0.347823 9.58733 0.506377 9.58733 0.676377C9.58733 0.8466 9.51378 1.00516 9.36667 1.15204L2.12333 8.39571H17.5617C17.7514 8.39571 17.91 8.45938 18.0373 8.58671C18.1647 8.71405 18.2283 8.8726 18.2283 9.06238C18.2283 9.25216 18.1647 9.41071 18.0373 9.53804C17.91 9.66538 17.7514 9.72904 17.5617 9.72904H2.12333Z"
+                    fill="var(--color-icon)" />
+            </svg>
+        </button>
+
+        <div class="dots" aria-hidden="true">
+            <span *ngFor="let item of items; let i = index; trackBy: trackByIndex" class="dot"
+                [class.dot--active]="i === activeIndex">
+            </span>
+        </div>
+
+        <button type="button" class="nav-btn nav-btn-next" (click)="next()" aria-label="Show next feedback">
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path
+                    d="M16.105 9.74506H0.666667C0.476889 9.74506 0.318333 9.68139 0.191 9.55406C0.0636665 9.42673 0 9.26817 0 9.07839C0 8.88862 0.0636665 8.73006 0.191 8.60273C0.318333 8.47539 0.476889 8.41173 0.666667 8.41173H16.105L8.854 1.16039C8.724 1.03062 8.656 0.877615 8.65 0.701393C8.644 0.525393 8.71456 0.363838 8.86167 0.216727C9.00856 0.0749489 9.16578 0.00272669 9.33333 6.00198e-05C9.50089 -0.00238442 9.65811 0.0698378 9.805 0.216727L17.9127 8.32439C18.0291 8.44084 18.1108 8.55973 18.1577 8.68106C18.2048 8.80239 18.2283 8.93484 18.2283 9.07839C18.2283 9.22195 18.2048 9.35439 18.1577 9.47573C18.1108 9.59706 18.0291 9.71595 17.9127 9.83239L9.805 17.9401C9.68033 18.0647 9.52867 18.1314 9.35 18.1401C9.17133 18.1485 9.00856 18.0818 8.86167 17.9401C8.71456 17.7929 8.641 17.6344 8.641 17.4644C8.641 17.2942 8.71456 17.1356 8.86167 16.9887L16.105 9.74506Z"
+                    fill="var(--color-icon)" />
+            </svg>
+        </button>
+    </div>
+</section>
