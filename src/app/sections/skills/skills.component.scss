@@ -13,7 +13,7 @@
         background-color: transparent;
         color: var(--color-text-white);
         font-size: 18px;
-        font-family: Karla Var;
+        font-family: Karla Var, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         border: 1px solid var(--color-text-white);
         text-decoration: none;
         transition: color 175ms ease, border-color 175ms ease, background-color 175ms ease;
@@ -34,8 +34,8 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
-    padding: 150px 80px;
-    font-family: Karla Var;
+    padding: 80px;
+    font-family: Karla Var, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--color-text-white);
     position: relative;
     overflow: hidden;
@@ -88,7 +88,7 @@
 
     h2 {
         margin: 0 0 50px 0;
-        font-family: Fira Code Var;
+        font-family: Fira Code Var, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         font-size: 64px;
         font-weight: 700;
         letter-spacing: 1px;
@@ -106,7 +106,7 @@
     font-size: 24px;
     margin: 32px 0 24px 0;
     font-weight: 700;
-    font-family: Fira Code Var;
+    font-family: Fira Code Var, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
     .accent {
         color: var(--color-accent);
@@ -118,7 +118,7 @@
     font-size: 16px;
     margin: 0;
     color: var(--color-text-white-transparent);
-    max-width: 300px;
+    max-width: 350px;
     font-weight: 400;
 }
 
@@ -189,7 +189,7 @@
         left: 35px;
         bottom: 120px;
         background: var(--color-icon);
-        font-family: Karla Var;
+        font-family: Karla Var, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         font-size: 14px;
         line-height: 18px;
         padding: 10px 12px;

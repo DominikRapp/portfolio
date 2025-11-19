@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { ProjectOverlayComponent, ProjectData, ProjectPayload } from './projects-overlays/project-overlay/project-overlay.component';
+import { ProjectOverlayComponent, ProjectData, ProjectPayload, } from './projects-overlays/project-overlay/project-overlay.component';
+import { TranslationService } from '../../core/translation.service';
 
 type PreviewPos = 'top' | 'middle' | 'bottom';
 type ProjectKey = 'join' | 'epl' | 'daba';
@@ -24,8 +25,7 @@ export class ProjectsComponent {
     join: {
       id: '01',
       title: 'Join',
-      description:
-        'Task manager inspired by the Kanban System. Create and organize tasks using drag-and-drop, assign users and categories.',
+      descriptionKey: 'projects.join.description',
       image: 'assets/img/join-overlay.jpg',
       techs: ['HTML', 'CSS', 'JavaScript', 'Firebase'],
       links: { github: '#', live: '#' },
@@ -33,8 +33,7 @@ export class ProjectsComponent {
     epl: {
       id: '02',
       title: 'El Pollo Loco',
-      description:
-        'Jump, run and throw items based on an object-oriented approach. Help Pepe collect coins and Tabasco bottles.',
+      descriptionKey: 'projects.epl.description',
       image: 'assets/img/epl-overlay.jpg',
       techs: ['HTML', 'CSS', 'JavaScript', 'Firebase'],
       links: { github: '#', live: '#' },
@@ -42,15 +41,22 @@ export class ProjectsComponent {
     daba: {
       id: '03',
       title: 'DABubble',
-      description:
-        'A Slack-like app for real-time team communication with channels, mentions, and clean UI.',
+      descriptionKey: 'projects.daba.description',
       image: 'assets/img/daba-overlay.jpg',
       techs: ['HTML', 'CSS', 'Angular', 'TypeScript', 'Firebase'],
       links: { github: '#', live: '#' },
     },
   };
 
-  constructor(private dialog: MatDialog) { }
+
+  constructor(
+    private dialog: MatDialog,
+    private translation: TranslationService
+  ) { }
+
+  t(key: string): string {
+    return this.translation.t(key);
+  }
 
   showPreview(src: string, pos: PreviewPos): void {
     this.previewSrc = src;
@@ -63,13 +69,15 @@ export class ProjectsComponent {
   }
 
   openProject(key: ProjectKey): void {
-    const projects: ProjectData[] = this.order.map(k => this.projectsMap[k]);
+    const projects: ProjectData[] = this.order.map(
+      projectKey => this.projectsMap[projectKey]
+    );
     const startIndex = this.order.indexOf(key);
     const payload: ProjectPayload = { projects, startIndex };
 
     const ref = this.dialog.open(ProjectOverlayComponent, {
       data: payload,
-      ariaLabel: `${this.projectsMap[key].title} details`,
+      ariaLabel: this.t('projects.dialog.aria'),
       autoFocus: true,
       restoreFocus: false,
       maxWidth: '1760px',

@@ -1,1 +1,49 @@
-<p>footer works!</p>
+<footer>
+    <div class="footer-left">
+        <a class="logo" href="#home" [attr.aria-label]="t('footer.logo.label')">
+            <span class="letters">
+                <span class="d-mirrored">D</span>
+                <span class="r-normal">R</span>
+            </span>
+            <span class="name">
+                <span class="name-split">Dominik</span>
+                <span>Rapp</span>
+            </span>
+        </a>
+        <p>
+            {{ t('footer.role') }}
+        </p>
+        <p>
+            {{ t('footer.location') }}
+        </p>
+    </div>
+
+    <p class="footer-mid">
+        &copy; 2025 Dominik Rapp
+    </p>
+
+    <nav class="footer-right" [attr.aria-label]="t('footer.nav.label')">
+        <ul>
+            <li>
+                <a href="https://github.com/DominikRapp" target="_blank" rel="noopener noreferrer">
+                    Github
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/dominik-rapp-393407326/" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+            </li>
+            <li>
+                <a href="mailto:rapp.dominik@hotmail.com">
+                    {{ t('footer.link.email') }}
+                </a>
+            </li>
+            <li>
+                <a href="/legal-notice">
+                    {{ t('footer.link.legal') }}
+                </a>
+            </li>
+        </ul>
+    </nav>
+</footer>

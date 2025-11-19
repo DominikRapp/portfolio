@@ -1,8 +1,13 @@
 import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FeedbackCardComponent } from './feedback-cards/feedback-card/feedback-card.component';
+import { TranslationService } from '../../core/translation.service';
 
-type FeedbackItem = { text: string; author: string; role: string };
+type FeedbackItem = {
+  textKey: string;
+  authorKey: string;
+  roleKey: string;
+};
 
 @Component({
   selector: 'app-feedback',
@@ -14,12 +19,30 @@ type FeedbackItem = { text: string; author: string; role: string };
 })
 export class FeedbackComponent {
   readonly items: FeedbackItem[] = [
-    { text: 'text 1', author: 'H. Janisch', role: 'Team Partner' },
-    { text: 'text 2', author: 'T. Schulz', role: 'Frontend Developer' },
-    { text: 'text 3', author: 'A. Example', role: 'Project Manager' },
+    {
+      textKey: 'feedback.item.1.text',
+      authorKey: 'feedback.item.1.author',
+      roleKey: 'feedback.item.1.role',
+    },
+    {
+      textKey: 'feedback.item.2.text',
+      authorKey: 'feedback.item.2.author',
+      roleKey: 'feedback.item.2.role',
+    },
+    {
+      textKey: 'feedback.item.3.text',
+      authorKey: 'feedback.item.3.author',
+      roleKey: 'feedback.item.3.role',
+    },
   ];
 
   activeIndex = 0;
+
+  constructor(private translation: TranslationService) { }
+
+  t(key: string): string {
+    return this.translation.t(key);
+  }
 
   get prevIndex(): number {
     return (this.activeIndex - 1 + this.items.length) % this.items.length;
@@ -43,7 +66,10 @@ export class FeedbackComponent {
 
   @HostListener('keydown', ['$event'])
   onKeydown(event: KeyboardEvent): void {
-    if (event.key === 'ArrowLeft') this.prev();
-    else if (event.key === 'ArrowRight') this.next();
+    if (event.key === 'ArrowLeft') {
+      this.prev();
+    } else if (event.key === 'ArrowRight') {
+      this.next();
+    }
   }
 }

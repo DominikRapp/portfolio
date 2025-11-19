@@ -1,15 +1,17 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef, } from '@angular/material/dialog';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { TranslationService } from '../../../../core/translation.service';
 
 export type ProjectData = {
   id: string;
   title: string;
-  description: string;
+  descriptionKey: string;
   image: string;
   techs: string[];
   links?: { github?: string; live?: string };
 };
+
 export type ProjectPayload = { projects: ProjectData[]; startIndex: number };
 
 @Component({
@@ -37,14 +39,24 @@ export class ProjectOverlayComponent {
   constructor(
     private dialogRef: MatDialogRef<ProjectOverlayComponent>,
     @Inject(MAT_DIALOG_DATA) payload: ProjectPayload,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private translation: TranslationService
   ) {
-    this.currentIndex = this.clampIndex(payload.startIndex, payload.projects.length);
+    this.currentIndex = this.clampIndex(
+      payload.startIndex,
+      payload.projects.length
+    );
     this.projects = payload.projects;
     this.current = this.projects[this.currentIndex];
   }
 
-  close(): void { this.dialogRef.close(); }
+  t(key: string): string {
+    return this.translation.t(key);
+  }
+
+  close(): void {
+    this.dialogRef.close();
+  }
 
   nextProject(): void {
     this.currentIndex = (this.currentIndex + 1) % this.projects.length;

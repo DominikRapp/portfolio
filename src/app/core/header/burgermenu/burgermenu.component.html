@@ -1,0 +1,32 @@
+<button type="button" class="burger-btn" [class.is-open]="isOpen" (click)="toggleMenu()" aria-haspopup="true"
+    [attr.aria-expanded]="isOpen" [attr.aria-label]="isOpen ? 'Close navigation menu' : 'Open navigation menu'">
+    <span class="burger-line"></span>
+    <span class="burger-line"></span>
+    <span class="burger-line"></span>
+</button>
+
+<section *ngIf="isOpen" class="burger-panel" aria-label="Mobile navigation">
+    <nav class="burger-nav">
+        <a href="#about" (click)="closeMenu()">
+            {{ t('nav.about') }}
+        </a>
+
+        <a href="#skills" (click)="closeMenu()">
+            {{ t('nav.skills') }}
+        </a>
+
+        <a href="#projects" (click)="closeMenu()">
+            {{ t('nav.projects') }}
+        </a>
+    </nav>
+
+    <mat-button-toggle-group class="lang-toggle burger-lang-toggle" [value]="lang()"
+        (change)="onLangChange($event.value)" [hideSingleSelectionIndicator]="true" aria-label="Language switch">
+        <mat-button-toggle value="en">
+            EN
+        </mat-button-toggle>
+        <mat-button-toggle value="de">
+            DE
+        </mat-button-toggle>
+    </mat-button-toggle-group>
+</section>

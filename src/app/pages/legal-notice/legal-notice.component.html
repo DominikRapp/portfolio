@@ -1,1 +1,151 @@
-<p>legal-notice works!</p>
+<main id="legal-notice" class="legal-notice" tabindex="-1">
+    <header class="legal-notice-header">
+        <h1 class="legal-notice-title">
+            {{ t('legal.title') }}
+        </h1>
+    </header>
+
+    <section class="legal-section" aria-labelledby="imprint-heading">
+        <h2 id="imprint-heading" class="legal-heading">
+            {{ t('legal.imprint.heading') }}
+        </h2>
+        <ul class="legal-list">
+            <li>Dominik Rapp</li>
+            <li>[Your Address Here]</li>
+            <li>[Postcode & City]</li>
+        </ul>
+    </section>
+
+    <section class="legal-section" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="legal-heading">
+            {{ t('legal.contact.heading') }}
+        </h2>
+        <p class="legal-text">
+            {{ t('legal.contact.emailLabel') }}
+            <a href="mailto:rapp.dominik@hotmail.com">rapp.dominik@hotmail.com</a>
+        </p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="terms-heading">
+        <h2 id="terms-heading" class="legal-heading">
+            {{ t('legal.terms.heading') }}
+        </h2>
+        <p class="legal-text">
+            {{ t('legal.terms.intro.prefix') }}
+            <span class="text-white">{{ t('legal.common.portfolio') }}</span>
+            {{ t('legal.terms.intro.middle') }}
+            {{ t('legal.terms.intro.suffix') }}
+        </p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="scope-heading">
+        <h2 id="scope-heading" class="legal-heading">
+            {{ t('legal.scope.heading') }}
+        </h2>
+
+        <p class="legal-text">
+            {{ t('legal.scope.p1.prefix') }}
+            <span class="text-white">{{ t('legal.common.portfolio') }}</span>
+            {{ t('legal.scope.p1.middle') }}
+            <span class="text-white">{{ t('legal.common.devAkademie') }}</span>
+            {{ t('legal.scope.p1.suffix') }}
+        </p>
+
+        <p class="legal-text">
+            {{ t('legal.scope.p2.prefix') }}
+            <span class="text-white">{{ t('legal.common.portfolio') }}</span>
+            {{ t('legal.scope.p2.suffix') }}
+        </p>
+
+        <p class="legal-text">
+            {{ t('legal.scope.p3.prefix') }}
+            <span class="text-white">{{ t('legal.common.devAkademie') }}</span>
+            {{ t('legal.scope.p3.suffix') }}
+        </p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="rights-heading">
+        <h2 id="rights-heading" class="legal-heading">
+            {{ t('legal.rights.heading') }}
+        </h2>
+
+        <p class="legal-text">
+            {{ t('legal.rights.intro') }}
+        </p>
+
+        <ul class="legal-list">
+            <li>{{ t('legal.rights.list.code') }}</li>
+            <li>
+                {{ t('legal.rights.list.info.prefix') }}
+                <span class="text-white">{{ t('legal.common.portfolio') }}</span>{{ t('legal.rights.list.info.suffix')
+                }}
+            </li>
+            <li>{{ t('legal.rights.list.assets') }}</li>
+            <li>{{ t('legal.rights.list.additionalWork') }}</li>
+        </ul>
+
+        <p class="legal-text">
+            {{ t('legal.rights.footer.prefix') }}
+            <span class="text-white">{{ t('legal.common.devAkademie') }}</span>
+            {{ t('legal.rights.footer.suffix') }}
+        </p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="usage-heading">
+        <h2 id="usage-heading" class="legal-heading">
+            {{ t('legal.usage.heading') }}
+        </h2>
+        <p class="legal-text">
+            {{ t('legal.usage.p.prefix') }}
+            <span class="text-white">{{ t('legal.common.portfolio') }}</span>
+            {{ t('legal.usage.p.middle') }}
+            <span class="text-white">{{ t('legal.common.portfolio') }}</span>
+            {{ t('legal.usage.p.suffix') }}
+        </p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="disclaimer-heading">
+        <h2 id="disclaimer-heading" class="legal-heading">
+            {{ t('legal.disclaimer.heading') }}
+        </h2>
+        <p class="legal-text">
+            {{ t('legal.disclaimer.p1.prefix') }}
+            <span class="text-white">{{ t('legal.common.portfolio') }}</span>
+            {{ t('legal.disclaimer.p1.suffix') }}
+        </p>
+
+        <p class="legal-text">
+            {{ t('legal.disclaimer.p2.prefix') }}
+            <span class="text-white">{{ t('legal.common.devAkademie') }}</span>
+            {{ t('legal.disclaimer.p2.suffix') }}
+            <span class="text-white">{{ t('legal.common.portfolio') }}</span>.
+        </p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="indemnity-heading">
+        <h2 id="indemnity-heading" class="legal-heading">
+            {{ t('legal.indemnity.heading') }}
+        </h2>
+        <p class="legal-text">
+            {{ t('legal.indemnity.p.prefix') }}
+            <span class="text-white">{{ t('legal.common.devAkademie') }}</span>
+            {{ t('legal.indemnity.p.suffix') }}
+            <span class="text-white">{{ t('legal.common.portfolio') }}</span>.
+        </p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="questions-heading">
+        <h2 id="questions-heading" class="legal-heading">
+            {{ t('legal.questions.heading') }}
+        </h2>
+        <p class="legal-text">
+            {{ t('legal.questions.p.prefix') }}
+            <a href="mailto:rapp.dominik@hotmail.com">rapp.dominik@hotmail.com</a>
+        </p>
+
+        <p class="legal-text">
+            <strong>{{ t('legal.questions.dateLabel') }}</strong>
+            {{ t('legal.questions.dateValue') }}
+        </p>
+    </section>
+</main>

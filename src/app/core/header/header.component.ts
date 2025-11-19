@@ -1,30 +1,41 @@
-import { ChangeDetectionStrategy, Component, HostListener, OnInit, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { TranslationService, AppLang } from '../translation.service';
+import { BurgermenuComponent } from './burgermenu/burgermenu.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatButtonToggleModule],
+  imports: [MatButtonToggleModule, BurgermenuComponent],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+  styleUrls: ['./header.component.scss', './header-mobile.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit {
-  readonly lang = signal<'de' | 'en'>((localStorage.getItem('lang') as 'de' | 'en') || 'de');
-
   readonly activeId = signal<string>('');
+
+  constructor(private translation: TranslationService) { }
 
   ngOnInit(): void {
     this.syncFromHash();
   }
 
-  isGerman(): boolean {
-    return this.lang() === 'de';
+  lang(): AppLang {
+    return this.translation.getLang();
   }
 
-  onLangChange(next: 'de' | 'en'): void {
-    this.lang.set(next);
-    localStorage.setItem('lang', next);
+  isGerman(): boolean {
+    return this.translation.isGerman();
+  }
+
+  onLangChange(next: AppLang): void {
+    this.translation.setLang(next);
   }
 
   onNavClick(id: string): void {
@@ -34,6 +45,10 @@ export class HeaderComponent implements OnInit {
   @HostListener('window:hashchange')
   onHashChange(): void {
     this.syncFromHash();
+  }
+
+  t(key: string): string {
+    return this.translation.t(key);
   }
 
   private syncFromHash(): void {

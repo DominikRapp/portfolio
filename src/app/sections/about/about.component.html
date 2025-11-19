@@ -1,21 +1,24 @@
 <section id="about" class="about-section" aria-labelledby="who-i-am-title">
-
     <figure class="photo-card">
-        <img src="/assets/img/picture.jpg" alt="Portrait while working on a laptop" width="568" height="568"
-            loading="lazy" decoding="async" />
-        <figcaption class="sr-only">Profile photo</figcaption>
+        <img src="/assets/img/picture.jpg" [attr.alt]="t('about.photo.alt')" width="568" height="568" loading="lazy"
+            decoding="async" />
+        <figcaption class="sr-only">
+            {{ t('about.photo.caption') }}
+        </figcaption>
     </figure>
 
     <div class="who-i-am">
-        <h4 id="who-i-am-title">Who I Am</h4>
+        <h4 id="who-i-am-title">
+            {{ t('about.section.title') }}
+        </h4>
 
         <article class="about-card" aria-labelledby="about-card-title" aria-describedby="about-card-lead">
-            <h2 id="about-card-title">About me</h2>
+            <h2 id="about-card-title">
+                {{ t('about.card.title') }}
+            </h2>
 
             <p id="about-card-lead" class="lead">
-                Hey there, I'm Dominik! Write some information about yourself that is IT related.
-                Why are you passionate about coding? What is your source of inspiration for improving your programming
-                skills?
+                {{ t('about.lead') }}
             </p>
 
             <ul class="icon-list">
@@ -29,7 +32,7 @@
                         </svg>
                     </span>
                     <p class="item-text">
-                        Where are you based? Would you be open to working remotely or potentially relocating?
+                        {{ t('about.item.location') }}
                     </p>
                 </li>
 
@@ -43,8 +46,7 @@
                         </svg>
                     </span>
                     <p class="item-text">
-                        Show that you are open-minded. Are you enthusiastic about learning new technologies and
-                        continually improving your skills?
+                        {{ t('about.item.learning') }}
                     </p>
                 </li>
 
@@ -58,8 +60,7 @@
                         </svg>
                     </span>
                     <p class="item-text">
-                        Do you learn from each challenge as you search for the most efficient or elegant solution? You
-                        can include keywords like analytical thinking, creativity, persistence and collaboration.
+                        {{ t('about.item.problemSolving') }}
                     </p>
                 </li>
             </ul>

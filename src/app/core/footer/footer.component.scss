@@ -1,0 +1,133 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 80px 40px 80px;
+    width: 100%;
+    align-items: center;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+.footer-left {
+    p {
+        font-size: 16px;
+        font-family: Karla Var, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-weight: 400;
+        margin: 8px 0px;
+
+    }
+}
+
+.footer-mid {
+    font-family: "Fira Code Var", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--color-accent);
+}
+
+//////////////////////////////////////////////////////////////////////
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    font-weight: 900;
+    font-family: "Fira Code Var", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    margin-bottom: 40px;
+
+    .letters {
+        display: inline-flex;
+        transform: rotate(90deg);
+        transform-origin: center;
+    }
+
+    .name {
+        line-height: 0.8;
+        -webkit-text-stroke: 0 var(--color-text-white);
+        transition: color 175ms ease, -webkit-text-stroke-color 175ms ease, -webkit-text-stroke-width 175ms ease;
+    }
+}
+
+.d-mirrored,
+.r-normal {
+    display: inline-block;
+    font-size: 34px;
+    color: var(--color-accent);
+    -webkit-text-stroke: 0 var(--color-accent);
+    transition: color 175ms ease, -webkit-text-stroke-color 175ms ease, -webkit-text-stroke-width 175ms ease;
+    font-family: "Playfair Display Var", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.d-mirrored {
+    transform: scaleX(-1);
+    transform-origin: center;
+    inline-size: 20px;
+}
+
+.r-normal {
+    margin-left: -5px;
+    inline-size: 20px;
+}
+
+.name-split {
+    display: flex;
+    align-items: center;
+}
+
+.logo:hover .d-mirrored,
+.logo:hover .r-normal {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--color-accent);
+    cursor: pointer;
+}
+
+.logo:hover .name {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--color-text-white);
+    cursor: pointer;
+}
+
+///////////////////////////////////////////////
+
+.footer-right ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Karla Var, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.footer-right li {
+    position: relative;
+    padding-left: 12px;
+    margin: 4px 0px;
+}
+
+.footer-right li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: -12px;
+    transform: translateY(2px);
+    opacity: 0;
+    font-size: 32px;
+}
+
+.footer-right a {
+    text-decoration: none;
+    color: var(--color-text-white);
+}
+
+.footer-right li:hover::before,
+.footer-right li:focus-within::before {
+    opacity: 1;
+    color: var(--color-accent);
+}
+
+.footer-right li:hover a,
+.footer-right li:focus-within a {
+    color: var(--color-accent);
+}

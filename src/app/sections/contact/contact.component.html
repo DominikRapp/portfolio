@@ -1,1 +1,108 @@
-<p>contact works!</p>
+<section aria-labelledby="contact-heading">
+    <!-- linke seite -->
+    <article>
+        <h4>
+            {{ t('contact.section.label') }}
+        </h4>
+
+        <h2 id="contact-heading">
+            {{ t('contact.heading.line1') }} <br />
+            {{ t('contact.heading.line2') }}
+        </h2>
+
+        <p class="question">
+            {{ t('contact.question') }}
+        </p>
+
+        <p>
+            {{ t('contact.body.intro') }}
+        </p>
+
+        <p>
+            {{ t('contact.body.cta.prefix') }}
+            <span>
+                {{ t('contact.body.cta.highlight') }}
+            </span>
+        </p>
+    </article>
+
+    <!-- rechte seite -->
+    <div>
+        <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+            <!-- NAME -->
+            <div class="input-box" (click)="nameInput.focus()">
+                <label for="name">
+                    {{ t('contact.label.name') }}
+                </label>
+                <input #nameInput #nameControl="ngModel" [(ngModel)]="contactData.name" id="name" name="name"
+                    type="text" autocomplete="name" required
+                    [placeholder]="getNamePlaceholder(nameControl, contactForm)" (focus)="isNameFocused = true"
+                    (blur)="isNameFocused = false" [class.input-error]="
+            contactForm.submitted &&
+            nameControl.invalid &&
+            !isNameFocused &&
+            !contactData.name
+          " />
+            </div>
+
+            <!-- EMAIL -->
+            <div class="input-box" (click)="emailInput.focus()">
+                <label for="email">
+                    {{ t('contact.label.email') }}
+                </label>
+                <input #emailInput #emailControl="ngModel" [(ngModel)]="contactData.email" id="email" name="email"
+                    type="email" autocomplete="email" required
+                    pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+                    [placeholder]="getEmailPlaceholder(emailControl, contactForm)" (focus)="isEmailFocused = true"
+                    (blur)="isEmailFocused = false" [class.input-error]="
+            contactForm.submitted &&
+            emailControl.invalid &&
+            !isEmailFocused &&
+            !contactData.email
+          " />
+            </div>
+
+            <!-- MESSAGE -->
+            <div class="input-box input-box-bottom" (click)="messageInput.focus()">
+                <label for="message">
+                    {{ t('contact.label.message') }}
+                </label>
+                <textarea #messageInput #messageControl="ngModel" [(ngModel)]="contactData.message" id="message"
+                    name="message" minlength="4" required
+                    [placeholder]="getMessagePlaceholder(messageControl, contactForm)" (focus)="isMessageFocused = true"
+                    (blur)="isMessageFocused = false" [class.input-error]="
+            contactForm.submitted &&
+            messageControl.invalid &&
+            !isMessageFocused &&
+            !contactData.message
+          ">
+        </textarea>
+            </div>
+
+            <div class="privacy-consent">
+                <input type="checkbox" id="privacyConsent" name="privacyConsent" [(ngModel)]="privacyConsent"
+                    #privacyConsentControl="ngModel" required [attr.aria-label]="t('contact.privacy.checkboxLabel')" />
+
+                <p>
+                    {{ t('contact.privacy.text.beforeLink') }}
+                    <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">
+                        {{ t('contact.privacy.linkLabel') }}
+                    </a>
+                    {{ t('contact.privacy.text.afterLink') }}
+                </p>
+            </div>
+
+            <p class="field-error privacy-error" [class.privacy-error-visible]="
+          contactForm.submitted && privacyConsentControl.invalid
+        ">
+                {{ t('contact.privacy.error') }}
+            </p>
+
+            <div class="btn-help">
+                <button type="submit">
+                    {{ t('contact.button.submit') }}
+                </button>
+            </div>
+        </form>
+    </div>
+</section>

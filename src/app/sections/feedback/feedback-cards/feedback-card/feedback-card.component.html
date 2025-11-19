@@ -1,4 +1,4 @@
-<article class="feedback-card" role="group" aria-label="Feedback card">
+<article class="feedback-card" role="group" [attr.aria-label]="t('feedback.card.label')">
     <svg *ngIf="showQuote" class="feedback-quote" width="90" height="64" viewBox="0 0 90 64" fill="none"
         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path
@@ -11,6 +11,6 @@
     </p>
 
     <span class="feedback-author">
-        {{ author }} – {{ role }}
+        {{ authorLine }}
     </span>
 </article>

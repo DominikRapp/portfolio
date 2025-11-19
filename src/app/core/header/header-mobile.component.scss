@@ -1,0 +1,56 @@
+.burger-desktop-slot {
+    display: none;
+}
+
+.logo-mobile {
+    display: none;
+    font-family: "Playfair Display Var", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 900;
+    font-size: 34px;
+    color: var(--color-accent);
+    text-decoration: none;
+
+    .letters {
+        display: inline-flex;
+        transform: rotate(90deg);
+        transform-origin: center;
+    }
+}
+
+.logo-mobile:hover .d-mirrored,
+.logo-mobile:hover .r-normal {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--color-accent);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .main-nav,
+    .header-nav nav,
+    .header-nav>.lang-toggle {
+        display: none;
+    }
+
+    .logo-mobile {
+        display: flex;
+        align-items: center;
+    }
+
+    .burger-desktop-slot {
+        display: inline-flex;
+    }
+}

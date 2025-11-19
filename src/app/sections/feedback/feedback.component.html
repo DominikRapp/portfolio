@@ -1,22 +1,26 @@
 <section class="feedback-section" aria-labelledby="feedback-title" tabindex="0">
     <div class="feedback-header">
         <h3 id="feedback-title" class="feedback-title">
-            What my colleagues say about me
+            {{ t('feedback.section.title') }}
         </h3>
     </div>
 
     <div class="feedback-viewport fadeout-shadow" role="region" aria-roledescription="carousel"
-        aria-label="Colleagues feedback">
+        [attr.aria-label]="t('feedback.section.regionLabel')">
         <div class="card-section">
-            <app-feedback-card *ngFor="let item of items; let i = index; trackBy: trackByIndex" class="card"
-                [ngClass]="{ 'is-prev': i === prevIndex, 'is-active': i === activeIndex, 'is-next': i === nextIndex }"
-                [text]="item.text" [author]="item.author" [role]="item.role" [showQuote]="i === activeIndex">
+            <app-feedback-card *ngFor="let item of items; let i = index; trackBy: trackByIndex" class="card" [ngClass]="{
+          'is-prev': i === prevIndex,
+          'is-active': i === activeIndex,
+          'is-next': i === nextIndex
+        }" [text]="t(item.textKey)" [author]="t(item.authorKey)" [role]="t(item.roleKey)"
+                [showQuote]="i === activeIndex">
             </app-feedback-card>
         </div>
     </div>
 
-    <div class="feedback-controls" role="group" aria-label="Feedback navigation">
-        <button type="button" class="nav-btn nav-btn-prev" (click)="prev()" aria-label="Show previous feedback">
+    <div class="feedback-controls" role="group" [attr.aria-label]="t('feedback.controls.label')">
+        <button type="button" class="nav-btn nav-btn-prev" (click)="prev()"
+            [attr.aria-label]="t('feedback.controls.prev')">
             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true">
                 <path
@@ -31,7 +35,8 @@
             </span>
         </div>
 
-        <button type="button" class="nav-btn nav-btn-next" (click)="next()" aria-label="Show next feedback">
+        <button type="button" class="nav-btn nav-btn-next" (click)="next()"
+            [attr.aria-label]="t('feedback.controls.next')">
             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true">
                 <path

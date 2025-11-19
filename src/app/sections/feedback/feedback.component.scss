@@ -1,5 +1,7 @@
 .feedback-section {
     color: var(--color-text-white);
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 .feedback-header {
@@ -8,7 +10,7 @@
     text-align: center;
     font-size: 32px;
     font-weight: 700;
-    font-family: Fira Code Var;
+    font-family: Fira Code Var, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .feedback-title {
@@ -44,7 +46,7 @@
 
 .card {
     position: absolute;
-    width: 60%;
+    width: 50%;
     max-width: 640px;
     transform: translateX(0) scale(0.9);
     opacity: 0;

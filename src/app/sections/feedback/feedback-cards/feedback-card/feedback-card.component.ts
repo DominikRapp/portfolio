@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslationService } from '../../../../core/translation.service';
 
 @Component({
   selector: 'app-feedback-card',
@@ -10,12 +11,18 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeedbackCardComponent {
-  @Input() text: string = 'Testcard Nummer 1';
-  @Input() author: string = 'Max Mustermann';
-  @Input() role: string = 'Role';
+  @Input() text: string = '';
+  @Input() author: string = '';
+  @Input() role: string = '';
   @Input() showQuote: boolean = false;
-  
+
+  constructor(private translation: TranslationService) {}
+
+  t(key: string): string {
+    return this.translation.t(key);
+  }
+
   get authorLine(): string {
-    return `${this.author} - ${this.role}`;
+    return `${this.author} – ${this.role}`;
   }
 }

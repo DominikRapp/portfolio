@@ -1,26 +1,31 @@
 <section class="skill-section" id="skills">
     <div class="technologies">
-        <h4 class="section-kicker">Technologies</h4>
+        <h4 class="section-kicker">
+            {{ t('skills.kicker') }}
+        </h4>
 
         <article class="technologies-card" aria-labelledby="skill-title" aria-describedby="skill-lead skill-more">
-            <h2 id="skill-title">Skill Set</h2>
+            <h2 id="skill-title">
+                {{ t('skills.title') }}
+            </h2>
 
             <p id="skill-lead" class="lead">
-                A short introduction of your skills. Highlight your experience of using different front-end
-                technologies and emphasise your openness to learning and adapting to new technologies. Show how
-                important it is for you to keep up with the rapid changes in web development.
+                {{ t('skills.lead') }}
             </p>
 
             <p class="question">
-                <span>You need</span> <span class="accent"> another skill?</span>
+                <span>{{ t('skills.question.prefix') }}</span>
+                <span class="accent">{{ t('skills.question.accent') }}</span>
             </p>
 
             <p id="skill-more" class="note">
-                Feel free to contact me. I look forward to expanding on my previous knowledge.
+                {{ t('skills.note') }}
             </p>
 
             <div class="skills-button">
-                <a class="btn" href="#contact" id="lets-talk">Let's Talk</a>
+                <a class="btn" href="#contact" id="lets-talk">
+                    {{ t('skills.button') }}
+                </a>
             </div>
         </article>
     </div>
@@ -170,7 +175,9 @@
                 </svg>
                 <figcaption>Growth mindset</figcaption>
                 <div id="gm-bubble" class="bubble" role="tooltip" aria-label="Weitere Skills">
-                    <span class="bubble-intro">I have a special interest in learning</span>
+                    <span class="bubble-intro">
+                        {{ t('skills.growth.bubbleIntro') }}
+                    </span>
 
                     <div class="tech-grid">
                         <figure class="tech">

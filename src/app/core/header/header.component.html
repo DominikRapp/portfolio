@@ -1,33 +1,42 @@
 <header>
 
-    <div class="header-nav">
+    <a class="logo-mobile" href="#home" aria-label="Mobile logo">
+        <span class="letters">
+            <span class="d-mirrored">D</span>
+            <span class="r-normal">R</span>
+        </span>
+    </a>
 
+    <div class="header-nav">
         <mat-button-toggle-group class="lang-toggle" [value]="lang()" (change)="onLangChange($event.value)"
-            [hideSingleSelectionIndicator]="true" aria-label="Sprache wählen">
-            <mat-button-toggle value="en" aria-label="Englisch">EN</mat-button-toggle>
-            <mat-button-toggle value="de" aria-label="Deutsch">DE</mat-button-toggle>
+            [hideSingleSelectionIndicator]="true" [attr.aria-label]="t('header.lang.switch')">
+            <mat-button-toggle value="en" [attr.aria-label]="t('header.lang.en')">
+                EN
+            </mat-button-toggle>
+            <mat-button-toggle value="de" [attr.aria-label]="t('header.lang.de')">
+                DE
+            </mat-button-toggle>
         </mat-button-toggle-group>
 
-        <nav class="main-nav" aria-label="Hauptnavigation">
+        <nav class="main-nav" [attr.aria-label]="t('header.nav.label')">
             <a href="#about" (click)="onNavClick('about')" [class.is-active]="activeId()==='about'"
                 [attr.aria-current]="activeId()==='about' ? 'page' : null">
-                {{ isGerman() ? 'Über mich' : 'About me' }}
+                {{ t('nav.about') }}
             </a>
 
             <a href="#skills" (click)="onNavClick('skills')" [class.is-active]="activeId()==='skills'"
                 [attr.aria-current]="activeId()==='skills' ? 'page' : null">
-                {{ isGerman() ? 'Fähigkeiten' : 'Skills' }}
+                {{ t('nav.skills') }}
             </a>
 
             <a href="#projects" (click)="onNavClick('projects')" [class.is-active]="activeId()==='projects'"
                 [attr.aria-current]="activeId()==='projects' ? 'page' : null">
-                {{ isGerman() ? 'Projekte' : 'Projects' }}
+                {{ t('nav.projects') }}
             </a>
         </nav>
-
     </div>
 
-    <a class="logo" href="#home" aria-label="Zur Startseite: Dominik Rapp">
+    <a class="logo" href="#home" [attr.aria-label]="t('header.logo.label')">
         <span class="letters">
             <span class="d-mirrored">D</span>
             <span class="r-normal">R</span>
@@ -38,4 +47,5 @@
         </span>
     </a>
 
+    <app-burgermenu class="burger-desktop-slot"></app-burgermenu>
 </header>

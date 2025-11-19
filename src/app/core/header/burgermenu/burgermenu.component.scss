@@ -1,0 +1,116 @@
+.burger-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    outline-offset: 4px;
+}
+
+.burger-btn:focus-visible {
+    outline: 2px solid var(--color-accent);
+}
+
+.burger-line {
+    width: 100%;
+    height: 3px;
+    border-radius: 9999px;
+    background-color: var(--color-text-white);
+    transition: background-color 150ms ease, transform 150ms ease, opacity 150ms ease;
+}
+
+.burger-btn.is-open .burger-line {
+    background-color: var(--color-accent);
+}
+
+.burger-panel {
+    position: fixed;
+    top: 110px;
+    right: 24px;
+    width: 260px;
+    padding: 24px 32px;
+    border-radius: 24px;
+    border: 1px solid var(--color-accent);
+    background: linear-gradient(35deg,
+            var(--color-bg-start) 0%,
+            var(--color-bg-start) 40%,
+            var(--color-bg-end) 90%,
+            var(--color-bg-end) 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    z-index: 20;
+}
+
+.burger-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+}
+
+.burger-nav a {
+    font-size: 20px;
+    font-family: Fira Code Var, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--color-text-white);
+    text-decoration: none;
+}
+
+.burger-nav a:hover,
+.burger-nav a:focus-visible {
+    color: var(--color-accent);
+}
+
+.burger-lang-toggle {
+    align-self: center;
+}
+
+.lang-toggle {
+    position: relative;
+    background: transparent;
+    border: 0;
+    border-radius: 25px;
+    font-family: "Fira Code Var", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--color-box-hover);
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 2px solid var(--color-accent);
+        border-radius: 25px;
+        pointer-events: none;
+        transition: border-color 175ms ease;
+    }
+
+    &:hover::before {
+        border-color: var(--color-text-white);
+    }
+
+    &:hover .mat-button-toggle:not(.mat-button-toggle-checked) {
+        color: var(--color-accent);
+    }
+
+    .mat-button-toggle {
+        height: 25px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+        transition: color 175ms ease;
+    }
+
+    .mat-button-toggle-checked {
+        background: var(--color-accent);
+        color: var(--color-text-white);
+        border-radius: 25px;
+        position: relative;
+        z-index: 1;
+        font-weight: 900;
+    }
+}
