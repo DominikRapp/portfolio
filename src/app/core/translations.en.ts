@@ -1,8 +1,6 @@
 import { TranslationMap } from './translation.types';
 
 export const EN_TRANSLATIONS: TranslationMap = {
-
-    // Header
     'header.nav.label': 'Main navigation',
     'nav.about': 'About me',
     'nav.skills': 'Skills',
@@ -11,16 +9,12 @@ export const EN_TRANSLATIONS: TranslationMap = {
     'header.lang.switch': 'Choose language',
     'header.lang.en': 'Switch to English',
     'header.lang.de': 'Switch to German',
-
-    // Footer
     'footer.logo.label': 'Go to start page: Dominik Rapp',
     'footer.role': 'Web Developer',
     'footer.location': 'Austria',
     'footer.nav.label': 'Footer navigation',
     'footer.link.email': 'Email',
     'footer.link.legal': 'Legal notice',
-
-    // About
     'about.section.title': 'Who I Am',
     'about.card.title': 'About me',
     'about.photo.alt': 'Portrait while working on a laptop',
@@ -29,8 +23,6 @@ export const EN_TRANSLATIONS: TranslationMap = {
     'about.item.location': 'I’m based in Austria and open to both remote work and relocation opportunities. Flexibility is important to me, and I’m always excited to work with international teams.',
     'about.item.learning': 'I’m an open-minded developer who enjoys exploring new technologies and continuously leveling up my skill set. Learning something new every day is one of my biggest motivations.',
     'about.item.problemSolving': 'I approach every challenge with analytical thinking, creativity, and persistence. For me, problem-solving is about finding the most efficient and elegant solution — and collaborating with others to make it even better.',
-
-    // Contact
     'contact.section.label': 'Contact me',
     'contact.heading.line1': "Let's work",
     'contact.heading.line2': 'together',
@@ -42,10 +34,10 @@ export const EN_TRANSLATIONS: TranslationMap = {
     'contact.label.email': "What's your email?",
     'contact.label.message': 'How can I help you?',
     'contact.placeholder.name': 'Your name goes here',
-    'contact.placeholder.nameError': 'Oops! It seems your name is missing',
+    'contact.placeholder.nameError': 'Oops! Your name is missing',
     'contact.placeholder.email': 'your@email.com',
     'contact.placeholder.emailError': 'Oops! Your email is required',
-    'contact.placeholder.message': 'Hello Dominik, I am interested in...',
+    'contact.placeholder.message': 'Hey Domi, I am interested in...',
     'contact.placeholder.messageError': 'What do you need to develop?',
     'contact.privacy.checkboxLabel': 'I agree to the privacy policy',
     'contact.privacy.text.beforeLink': "I've read the",
@@ -53,25 +45,21 @@ export const EN_TRANSLATIONS: TranslationMap = {
     'contact.privacy.text.afterLink': 'and agree to the processing of my data as outlined.',
     'contact.privacy.error': 'Please accept the privacy policy.',
     'contact.button.submit': 'Say Hello ;)',
-
-    // Feedback
     'feedback.section.title': 'What my colleagues say about me',
     'feedback.section.regionLabel': 'Colleagues feedback',
     'feedback.controls.label': 'Feedback navigation',
     'feedback.controls.prev': 'Show previous feedback',
     'feedback.controls.next': 'Show next feedback',
     'feedback.card.label': 'Feedback card',
-    'feedback.item.1.text': 'text 1 EN Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat labore laborum nobis. Sed sequi quasi ducimus nihil culpa, quaerat exercitationem. Soluta temporibus corporis placeat, blanditiis quae quibusdam beatae molestiae dolorum.',
-    'feedback.item.1.author': 'A. Beispiel',
+    'feedback.item.1.text': 'Dominik works in a highly structured manner, is absolutely reliable, and demonstrates strong teamwork skills. Collaborating with him is always pleasant and professional – I can recommend him without reservation.',
+    'feedback.item.1.author': 'E. Birich',
     'feedback.item.1.role': 'Teampartner',
     'feedback.item.2.text': 'text 2 EN Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius assumenda soluta incidunt optio corrupti id, minus alias ratione ipsam a numquam accusantium reprehenderit nisi, magnam perspiciatis quod porro similique sed!',
     'feedback.item.2.author': 'B. Beispiel',
-    'feedback.item.2.role': 'Frontend-Entwickler',
+    'feedback.item.2.role': 'Teampartner',
     'feedback.item.3.text': 'text 3 EN Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere laborum similique quas voluptatem rerum blanditiis reprehenderit commodi, nihil at repudiandae maxime fugiat aspernatur ipsam, excepturi dicta error, quidem architecto repellendus!',
     'feedback.item.3.author': 'C. Beispiel',
     'feedback.item.3.role': 'Teampartner',
-
-    // Hero
     'hero.role': 'Frontend Developer',
     'hero.cta.work': 'Check my work',
     'hero.cta.contact': 'Contact me',
@@ -81,8 +69,6 @@ export const EN_TRANSLATIONS: TranslationMap = {
     'hero.banner.openToWork': 'Open to work',
     'hero.banner.remote': 'Available for remote work',
     'hero.banner.build': 'Let’s build something great',
-
-    // Project overlay
     'projectOverlay.question': 'What is this project about?',
     'projectOverlay.techList.label': 'Technologies',
     'projectOverlay.github': 'GitHub',
@@ -95,18 +81,14 @@ export const EN_TRANSLATIONS: TranslationMap = {
     'projects.join.description': 'Task manager inspired by the Kanban system. Create and organize tasks using drag-and-drop, assign users and categories.',
     'projects.epl.description': 'Jump, run and throw items based on an object-oriented approach. Help Pepe collect coins and Tabasco bottles.',
     'projects.daba.description': 'A Slack-like app for real-time team communication with channels, mentions, and a clean UI.',
-
-    // Projects section
     'projects.eyebrow': 'Portfolio',
     'projects.title': 'Featured Projects',
-    'projects.lead': 'Explore a selection of my personal top 3 work here – interact with projects to see my skills in action.',
+    'projects.lead': 'Explore a selection of my top 3 work here – interact with projects to see my skills in action.',
     'projects.techList.label': 'Technologies',
     'projects.join.aria': 'Open Join project overlay',
     'projects.epl.aria': 'Open El Pollo Loco project overlay',
     'projects.daba.aria': 'Open DA Bubble project overlay',
     'projects.dialog.aria': 'Project details dialog',
-
-    // Skill section
     'skills.kicker': 'Technologies',
     'skills.title': 'Skill Set',
     'skills.lead': 'I focus on modern front-end development, creating clean, responsive and accessible user interfaces. I enjoy continuously learning new tools and best practices.',
@@ -115,8 +97,6 @@ export const EN_TRANSLATIONS: TranslationMap = {
     'skills.note': 'Feel free to contact me. I look forward to expanding on my previous knowledge.',
     'skills.button': "Let’s talk",
     'skills.growth.bubbleIntro': 'I have a special interest in learning',
-
-    // legal
     'legal.common.portfolio': 'Portfolio',
     'legal.common.devAkademie': 'Developer Akademie GmbH',
     'legal.title': 'Legal Notice',
@@ -160,8 +140,6 @@ export const EN_TRANSLATIONS: TranslationMap = {
     'legal.questions.p.prefix': 'For questions or notices, please contact: ',
     'legal.questions.dateLabel': 'Date:',
     'legal.questions.dateValue': 'November 18, 2025',
-
-    // privacy
     'privacy.title': 'Privacy Policy',
     'privacy.intro.heading': '1. Introduction',
     'privacy.intro.p1': 'This Privacy Policy explains how personal data is collected, processed, and protected when using this portfolio (Product). This portfolio was created independently by me, Dominik Rapp, following mockups, templates, and educational materials provided by Developer Akademie GmbH.',
@@ -216,5 +194,5 @@ export const EN_TRANSLATIONS: TranslationMap = {
     'privacy.contactInfo.heading': '11. Contact Information',
     'privacy.contactInfo.p1': 'For any questions about data protection, please contact: ',
     'privacy.contactInfo.dateLabel': 'Date:',
-    'privacy.contactInfo.dateValue': 'July 26, 2025',
+    'privacy.contactInfo.dateValue': 'November 18, 2025',
 };

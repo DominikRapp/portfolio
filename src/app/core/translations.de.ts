@@ -1,8 +1,6 @@
 import { TranslationMap } from './translation.types';
 
 export const DE_TRANSLATIONS: TranslationMap = {
-
-    // Header
     'header.nav.label': 'Hauptnavigation',
     'nav.about': 'Über mich',
     'nav.skills': 'Fähigkeiten',
@@ -11,16 +9,12 @@ export const DE_TRANSLATIONS: TranslationMap = {
     'header.lang.switch': 'Sprache wählen',
     'header.lang.en': 'Zu Englisch wechseln',
     'header.lang.de': 'Zu Deutsch wechseln',
-
-    // Footer
     'footer.logo.label': 'Zur Startseite: Dominik Rapp',
     'footer.role': 'Webentwickler',
     'footer.location': 'Österreich',
     'footer.nav.label': 'Footer Navigation',
     'footer.link.email': 'E-Mail',
     'footer.link.legal': 'Impressum',
-
-    // About
     'about.section.title': 'Wer ich bin',
     'about.card.title': 'Über mich',
     'about.photo.alt': 'Porträt beim Arbeiten an einem Laptop',
@@ -29,8 +23,6 @@ export const DE_TRANSLATIONS: TranslationMap = {
     'about.item.location': 'Ich lebe in Österreich und bin offen für Remote-Arbeit und Umzugsmöglichkeiten. Flexibilität ist mir wichtig, und ich arbeite sehr gerne mit internationalen Teams zusammen.',
     'about.item.learning': 'Ich bin ein offen denkender Entwickler, der es liebt, neue Technologien zu entdecken und seine Fähigkeiten kontinuierlich auszubauen.',
     'about.item.problemSolving': 'Ich gehe jede Herausforderung mit analytischem Denken, Kreativität und Ausdauer an. Für mich bedeutet Problemlösung, die effizienteste und eleganteste Lösung zu finden – und im Team noch besser zu machen.',
-
-    // Contact
     'contact.section.label': 'Kontaktiere mich',
     'contact.heading.line1': 'Arbeiten wir',
     'contact.heading.line2': 'zusammen',
@@ -39,39 +31,35 @@ export const DE_TRANSLATIONS: TranslationMap = {
     'contact.body.cta.prefix': 'Du suchst einen Frontend-Entwickler?',
     'contact.body.cta.highlight': 'Lass uns sprechen!',
     'contact.label.name': 'Wie heißt du?',
-    'contact.label.email': 'Wie lautet deine E-Mail?',
-    'contact.label.message': 'Wie kann ich dir helfen?',
+    'contact.label.email': 'Deine E-Mail?',
+    'contact.label.message': 'Was benötigst du?',
     'contact.placeholder.name': 'Dein Name kommt hier hin',
     'contact.placeholder.nameError': 'Ups! Dein Name fehlt noch',
     'contact.placeholder.email': 'deine@email.com',
-    'contact.placeholder.emailError': 'Ups! Deine E-Mail-Adresse ist nötig',
-    'contact.placeholder.message': 'Hallo Dominik, ich interessiere mich für...',
-    'contact.placeholder.messageError': 'Wobei brauchst du Unterstützung in der Entwicklung?',
+    'contact.placeholder.emailError': 'Ups! Deine E-Mail fehlt',
+    'contact.placeholder.message': 'Hey Domi, mich interessiert...',
+    'contact.placeholder.messageError': 'Wobei kann ich helfen?',
     'contact.privacy.checkboxLabel': 'Ich stimme der Datenschutzerklärung zu',
     'contact.privacy.text.beforeLink': 'Ich habe die',
     'contact.privacy.linkLabel': 'Datenschutzerklärung',
     'contact.privacy.text.afterLink': 'gelesen und stimme zu.',
     'contact.privacy.error': 'Bitte akzeptiere die Datenschutzerklärung.',
     'contact.button.submit': 'Sag Hallo ;)',
-
-    // Feedback
     'feedback.section.title': 'Feedback meiner Kolleginnen und Kollegen',
     'feedback.section.regionLabel': 'Feedback von Kolleginnen und Kollegen',
     'feedback.controls.label': 'Feedback-Navigation',
     'feedback.controls.prev': 'Vorheriges Feedback anzeigen',
     'feedback.controls.next': 'Nächstes Feedback anzeigen',
     'feedback.card.label': 'Feedback-Karte',
-    'feedback.item.1.text': 'text 1 DE Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat labore laborum nobis. Sed sequi quasi ducimus nihil culpa, quaerat exercitationem. Soluta temporibus corporis placeat, blanditiis quae quibusdam beatae molestiae dolorum.',
-    'feedback.item.1.author': 'A. Beispiel',
+    'feedback.item.1.text': 'Dominik arbeitet äußerst strukturiert, ist absolut zuverlässig und zeigt eine hohe Teamfähigkeit. Die Zusammenarbeit mit ihm ist jederzeit angenehm und professionell – ich kann ihn uneingeschränkt empfehlen.',
+    'feedback.item.1.author': 'E. Birich',
     'feedback.item.1.role': 'Teampartner',
     'feedback.item.2.text': 'text 2 DE Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius assumenda soluta incidunt optio corrupti id, minus alias ratione ipsam a numquam accusantium reprehenderit nisi, magnam perspiciatis quod porro similique sed!',
     'feedback.item.2.author': 'B. Beispiel',
-    'feedback.item.2.role': 'Frontend-Entwickler',
+    'feedback.item.2.role': 'Teampartner',
     'feedback.item.3.text': 'text 3 DE Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere laborum similique quas voluptatem rerum blanditiis reprehenderit commodi, nihil at repudiandae maxime fugiat aspernatur ipsam, excepturi dicta error, quidem architecto repellendus!',
     'feedback.item.3.author': 'C. Beispiel',
     'feedback.item.3.role': 'Teampartner',
-
-    // Hero
     'hero.role': 'Frontend-Entwickler',
     'hero.cta.work': 'Meine Arbeit',
     'hero.cta.contact': 'Schreib mir',
@@ -81,8 +69,6 @@ export const DE_TRANSLATIONS: TranslationMap = {
     'hero.banner.openToWork': 'Offen für neue Projekte',
     'hero.banner.remote': 'Verfügbar für Remote-Arbeit',
     'hero.banner.build': 'Lass uns etwas Großartiges bauen',
-
-    // Project overlay
     'projectOverlay.question': 'Worum geht es in diesem Projekt?',
     'projectOverlay.techList.label': 'Technologien',
     'projectOverlay.github': 'GitHub',
@@ -95,18 +81,14 @@ export const DE_TRANSLATIONS: TranslationMap = {
     'projects.join.description': 'Task-Manager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben mit Drag-and-drop und weise Nutzer sowie Kategorien zu.',
     'projects.epl.description': 'Springe, renne und wirf Gegenstände in einem objektorientierten Jump-and-Run. Hilf Pepe, Münzen und Tabasco-Flaschen zu sammeln.',
     'projects.daba.description': 'Eine Slack-ähnliche App für Echtzeit-Teamkommunikation mit Channels, Erwähnungen und aufgeräumter Oberfläche.',
-
-    // Projects section
     'projects.eyebrow': 'Portfolio',
     'projects.title': 'Ausgewählte Projekte',
-    'projects.lead': 'Entdecke hier eine Auswahl meiner persönlichen Top 3 Arbeiten – interagiere mit den Projekten, um meine Skills in Aktion zu sehen.',
+    'projects.lead': 'Hier eine Auswahl meiner Top 3 Arbeiten – Sieh dir meine Projekte in Aktion an.',
     'projects.techList.label': 'Technologien',
     'projects.join.aria': 'Join-Projekt-Overlay öffnen',
     'projects.epl.aria': 'El-Pollo-Loco-Projekt-Overlay öffnen',
     'projects.daba.aria': 'DA-Bubble-Projekt-Overlay öffnen',
     'projects.dialog.aria': 'Projekt-Details-Dialog',
-
-    // Skill section
     'skills.kicker': 'Technologien',
     'skills.title': 'Skill-Set',
     'skills.lead': 'Ich fokussiere mich auf moderne Frontend-Entwicklung und erstelle saubere, responsive und barrierearme Benutzeroberflächen. Außerdem erweitere ich mein Wissen ständig um neue Tools und Best Practices.',
@@ -115,8 +97,6 @@ export const DE_TRANSLATIONS: TranslationMap = {
     'skills.note': 'Melde dich gerne bei mir – ich freue mich darauf, mein Wissen gezielt zu erweitern.',
     'skills.button': 'Jetzt schreiben',
     'skills.growth.bubbleIntro': 'Besonders interessiert bin ich an',
-
-    // legal
     'legal.common.portfolio': 'Portfolio',
     'legal.common.devAkademie': 'Developer Akademie GmbH',
     'legal.title': 'Rechtliche Hinweise',
@@ -160,8 +140,6 @@ export const DE_TRANSLATIONS: TranslationMap = {
     'legal.questions.p.prefix': 'Für Anfragen oder Hinweise kontaktieren Sie bitte: ',
     'legal.questions.dateLabel': 'Stand:',
     'legal.questions.dateValue': '18. November 2025',
-
-    // privacy
     'privacy.title': 'Datenschutzerklärung',
     'privacy.intro.heading': '1. Einleitung',
     'privacy.intro.p1': 'Diese Datenschutzerklärung erklärt, wie personenbezogene Daten bei der Nutzung dieses Portfolios (Produkts) erhoben, verarbeitet und geschützt werden. Dieses Portfolio wurde von mir, Dominik Rapp, eigenständig erstellt, basierend auf Mockups, Vorlagen und Schulungsmaterialien der Developer Akademie GmbH.',
@@ -216,6 +194,5 @@ export const DE_TRANSLATIONS: TranslationMap = {
     'privacy.contactInfo.heading': '11. Kontakt für Datenschutzanfragen',
     'privacy.contactInfo.p1': 'Bei Fragen zum Datenschutz können Sie sich an folgende E-Mail-Adresse wenden: ',
     'privacy.contactInfo.dateLabel': 'Stand:',
-    'privacy.contactInfo.dateValue': '26. Juli 2025',
-
+    'privacy.contactInfo.dateValue': '18. November 2025',
 };

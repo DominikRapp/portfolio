@@ -58,8 +58,6 @@ section[aria-labelledby="contact-heading"] {
         padding: 0;
     }
 
-    //////////////////////////////////////////////////
-
     .privacy-consent {
         display: flex;
         align-items: center;
@@ -89,6 +87,7 @@ section[aria-labelledby="contact-heading"] {
         align-items: center;
         justify-content: center;
         margin: 0;
+        flex-shrink: 0;
     }
 
     .privacy-consent input[type="checkbox"]::before {
@@ -137,8 +136,6 @@ section[aria-labelledby="contact-heading"] {
         }
     }
 
-    //////////////////////////////////////////////////
-
     button[type="submit"] {
         display: inline-flex;
         align-items: center;
@@ -184,8 +181,6 @@ section[aria-labelledby="contact-heading"] {
             }
         }
     }
-
-    //////////////////////////////////////////////////
 
     div {
         display: flex;
@@ -295,6 +290,5 @@ section[aria-labelledby="contact-heading"] {
 
     .privacy-error-visible {
         visibility: visible;
-        /* Text anzeigen bei Fehler */
     }
 }

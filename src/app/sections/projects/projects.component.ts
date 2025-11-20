@@ -11,7 +11,7 @@ type ProjectKey = 'join' | 'epl' | 'daba';
   standalone: true,
   imports: [MatDialogModule],
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss',
+  styleUrls: ['./projects.component.scss', './projects-mobile.component.scss',],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsComponent {
@@ -43,7 +43,7 @@ export class ProjectsComponent {
       title: 'DABubble',
       descriptionKey: 'projects.daba.description',
       image: 'assets/img/daba-overlay.jpg',
-      techs: ['HTML', 'CSS', 'Angular', 'TypeScript', 'Firebase'],
+      techs: ['Angular', 'TypeScript', 'Firebase'],
       links: { github: '#', live: '#' },
     },
   };

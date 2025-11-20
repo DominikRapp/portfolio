@@ -1,0 +1,46 @@
+@media screen and (max-width: 1399px) {
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    section[aria-labelledby="contact-heading"] {
+        padding: 40px 16px;
+
+        form {
+            width: auto;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    section[aria-labelledby="contact-heading"] {
+        .input-box {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+    }
+}
+
+@media screen and (max-width: 530px) {
+    section[aria-labelledby="contact-heading"] {
+
+        .privacy-error {
+            margin-bottom: 16px;
+        }
+
+        article h2 {
+            font-size: 38px;
+            line-height: 40px;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-size: 22px;
+        }
+    }
+}

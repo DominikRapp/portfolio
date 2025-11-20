@@ -121,8 +121,6 @@
     }
 }
 
-//////////////////////////////////////////////////////////////////
-
 .projects-section {
     position: relative;
 
@@ -189,12 +187,6 @@
 
         &.pos-bottom {
             top: 440px;
-        }
-    }
-
-    @media (max-width: 1000px) {
-        .project-preview {
-            display: none;
         }
     }
 }

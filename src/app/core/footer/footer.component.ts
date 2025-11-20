@@ -6,7 +6,7 @@ import { TranslationService } from '../translation.service';
   standalone: true,
   imports: [],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss',
+  styleUrls: ['./footer.component.scss', './footer-mobile.component.scss',],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {

@@ -6,7 +6,7 @@ import { TranslationService } from '../../core/translation.service';
   imports: [],
   standalone: true,
   templateUrl: './privacy-policy.component.html',
-  styleUrl: './privacy-policy.component.scss',
+  styleUrls: ['./privacy-policy.component.scss', './privacy-policy-mobile.component.scss',],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrivacyPolicyComponent {

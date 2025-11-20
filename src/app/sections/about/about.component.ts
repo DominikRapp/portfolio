@@ -6,7 +6,7 @@ import { TranslationService } from '../../core/translation.service';
   standalone: true,
   imports: [],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.scss',
+  styleUrls: ['./about.component.scss', './about-mobile.component.scss',],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent {

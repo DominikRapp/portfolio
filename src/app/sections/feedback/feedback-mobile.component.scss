@@ -1,0 +1,187 @@
+@media screen and (max-width: 1669px) {
+
+    .card {
+        position: absolute;
+        width: 50%;
+        max-width: 640px;
+        opacity: 0;
+        filter: brightness(0.9) saturate(0.9);
+        pointer-events: none;
+        transform: translateX(0) scale(0.9);
+        transition: transform 260ms ease-in-out, opacity 260ms ease-in-out, filter 260ms ease-in-out;
+    }
+
+    .card.pos--1 {
+        transform: translateX(-120%) scale(0.96);
+        opacity: 0.9;
+        z-index: 2;
+    }
+
+    .card.pos-1 {
+        transform: translateX(120%) scale(0.96);
+        opacity: 0.9;
+        z-index: 2;
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+    .feedback-section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 799px) {
+    .card-section {
+        position: relative;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .card {
+        position: absolute;
+        width: 50%;
+        max-width: 640px;
+        width: 400px;
+        opacity: 0;
+        filter: brightness(0.9) saturate(0.9);
+        pointer-events: none;
+        transform: translateX(0) scale(0.9);
+        transition: transform 260ms ease-in-out, opacity 260ms ease-in-out, filter 260ms ease-in-out;
+    }
+
+    .card.pos-0 {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+        filter: none;
+        pointer-events: auto;
+        z-index: 3;
+    }
+
+    .card.pos--1 {
+        transform: translateX(-120%) scale(0.96);
+        opacity: 0.9;
+        z-index: 2;
+    }
+
+    .card.pos-1 {
+        transform: translateX(120%) scale(0.96);
+        opacity: 0.9;
+        z-index: 2;
+    }
+
+}
+
+@media screen and (max-width: 699px) {
+    .card-section {
+        position: relative;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .card {
+        position: absolute;
+        width: 50%;
+        max-width: 640px;
+        width: 400px;
+        opacity: 0;
+        filter: brightness(0.9) saturate(0.9);
+        pointer-events: none;
+        transform: translateX(0) scale(0.9);
+        transition: transform 260ms ease-in-out, opacity 260ms ease-in-out, filter 260ms ease-in-out;
+    }
+
+    .card.pos-0 {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+        filter: none;
+        pointer-events: auto;
+        z-index: 3;
+    }
+
+    .card.pos--1 {
+        transform: translateX(-110%) scale(0.96);
+        opacity: 0.9;
+        z-index: 2;
+    }
+
+    .card.pos-1 {
+        transform: translateX(110%) scale(0.96);
+        opacity: 0.9;
+        z-index: 2;
+    }
+
+}
+
+@media screen and (max-width: 560px) {
+    .card-section {
+        position: relative;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .card {
+        position: absolute;
+        width: 50%;
+        max-width: 640px;
+        width: 280px;
+        height: 280px;
+        opacity: 0;
+        filter: brightness(0.9) saturate(0.9);
+        pointer-events: none;
+        transform: translateX(0) scale(0.9);
+        transition: transform 260ms ease-in-out, opacity 260ms ease-in-out, filter 260ms ease-in-out;
+    }
+
+    .card.pos-0 {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+        filter: none;
+        pointer-events: auto;
+        z-index: 3;
+        padding: 16px;
+    }
+
+    .card.pos--1 {
+        transform: translateX(-100%) scale(0.96);
+        opacity: 0.9;
+        z-index: 2;
+        padding: 16px;
+    }
+
+    .card.pos-1 {
+        transform: translateX(100%) scale(0.96);
+        opacity: 0.9;
+        z-index: 2;
+        padding: 16px;
+    }
+
+    .fadeout-shadow {
+        mask-image: none;
+    }
+
+    .feedback-text {
+        font-size: 16px;
+    }
+
+    .feedback-quote {
+        left: 15px;
+        top: -23px;
+        height: auto;
+        width: 60px;
+    }
+
+}

@@ -1,0 +1,108 @@
+@media screen and (max-width: 1400px) {
+    .overlay-card {
+        padding: 24px;
+        gap: 0px;
+
+        .overlay-left {
+
+            h2 {
+                font-size: 42px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .desktop {
+        display: none !important;
+    }
+
+    .overlay-card {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 0;
+        padding: 20px 8px !important;
+
+        .overlay-id {
+            font-size: 62px !important;
+        }
+
+        .overlay-actions {
+            justify-content: center;
+            padding-bottom: 20px;
+        }
+
+        .overlay-left {
+            max-width: 560px !important;
+        }
+    }
+
+    .mobile {
+        display: flex !important;
+        justify-content: center;
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--color-accent);
+            font-size: 18px;
+            font-family: Karla Var, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 400;
+            padding: 0;
+            width: 170px;
+
+            &:hover {
+                color: var(--color-text-white);
+            }
+
+            svg {
+                transform: translateX(0px);
+                transition: transform 175ms ease;
+                will-change: transform;
+            }
+
+            &:hover svg {
+                transform: translateX(4px);
+            }
+
+            &:focus-visible {
+                outline: 2px solid var(--color-accent);
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .overlay-actions {
+        gap: 10px !important;
+    }
+
+    .overlay-card {
+
+        .overlay-left {
+
+            .overlay-title {
+                padding-bottom: 0px !important;
+            }
+
+            .overlay-question {
+                padding-bottom: 0px !important;
+            }
+
+            .overlay-desc {
+                padding-bottom: 0px !important;
+                margin-bottom: 35px !important;
+            }
+
+            h2 {
+                font-size: 32px !important;
+            }
+        }
+    }
+}

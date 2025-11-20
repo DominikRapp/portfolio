@@ -9,7 +9,7 @@ import { TranslationService } from '../../core/translation.service';
   standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss',
+  styleUrls: ['./contact.component.scss','./contact-mobile.component.scss',],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent {

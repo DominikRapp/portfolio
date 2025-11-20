@@ -6,7 +6,7 @@ import { TranslationService } from '../../core/translation.service';
   standalone: true,
   imports: [],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss',
+  styleUrls: ['./hero.component.scss','./hero-mobile.component.scss',],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroComponent {

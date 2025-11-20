@@ -6,7 +6,7 @@ import { TranslationService } from '../../core/translation.service';
   standalone: true,
   imports: [],
   templateUrl: './legal-notice.component.html',
-  styleUrl: './legal-notice.component.scss',
+  styleUrls: ['./legal-notice.component.scss', './legal-notice-mobile.component.scss',],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LegalNoticeComponent {

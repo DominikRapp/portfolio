@@ -1,0 +1,80 @@
+@media screen and (max-width: 1350px) {
+    .skill-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .skill-section {
+        padding: 40px 16px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, 150px);
+        margin: 40px 0 0 0;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .skill-section {
+        padding: 40px 16px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, 150px);
+    }
+
+    .technologies {
+        width: auto;
+        height: auto;
+        max-width: auto;
+        max-height: auto;
+    }
+
+    .technologies-card {
+        width: auto;
+        height: auto;
+        max-width: auto;
+        max-height: auto;
+
+        h2 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+    }
+
+    .growth-item {
+
+        .bubble {
+
+            &::after {
+                top: 100%;
+                left: 47%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 150px);
+    }
+
+    .growth-item {
+
+        figure.has-bubble {
+            position: relative;
+        }
+
+        .bubble {
+            left: -74px;
+
+            &::after {
+                top: 100%;
+                left: 105%;
+            }
+        }
+    }
+}

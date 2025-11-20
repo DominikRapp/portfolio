@@ -5,7 +5,7 @@ import { TranslationService } from '../../core/translation.service';
   selector: 'app-skills',
   imports: [],
   templateUrl: './skills.component.html',
-  styleUrl: './skills.component.scss',
+  styleUrls: ['./skills.component.scss','./skills-mobile.component.scss',],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsComponent {

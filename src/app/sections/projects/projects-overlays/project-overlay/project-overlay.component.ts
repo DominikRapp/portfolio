@@ -19,7 +19,7 @@ export type ProjectPayload = { projects: ProjectData[]; startIndex: number };
   standalone: true,
   imports: [MatDialogModule],
   templateUrl: './project-overlay.component.html',
-  styleUrl: './project-overlay.component.scss',
+  styleUrls: ['./project-overlay.component.scss','./project-overlay-mobile.component.scss',],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectOverlayComponent {

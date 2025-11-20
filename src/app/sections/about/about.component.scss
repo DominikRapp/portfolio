@@ -9,8 +9,6 @@
 
 .photo-card {
     position: relative;
-    width: 568px;
-    height: 568px;
     margin: 0;
     border-radius: 30px;
     overflow: visible;
@@ -49,8 +47,6 @@
 
     img {
         display: block;
-        width: 568px;
-        height: 568px;
         object-fit: cover;
         border-radius: 30px;
     }

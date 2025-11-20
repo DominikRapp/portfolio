@@ -6,7 +6,9 @@ footer {
     align-items: center;
 }
 
-//////////////////////////////////////////////////////////////////////
+.mobile {
+    display: none;
+}
 
 .footer-left {
     p {
@@ -24,8 +26,6 @@ footer {
     font-weight: 400;
     color: var(--color-accent);
 }
-
-//////////////////////////////////////////////////////////////////////
 
 .logo {
     display: flex;
@@ -88,8 +88,6 @@ footer {
     -webkit-text-stroke-color: var(--color-text-white);
     cursor: pointer;
 }
-
-///////////////////////////////////////////////
 
 .footer-right ul {
     list-style: none;
