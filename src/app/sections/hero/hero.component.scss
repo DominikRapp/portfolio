@@ -136,9 +136,9 @@ section {
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .arrow {
-        animation: none;
-      }
+      // .arrow {
+      //   animation: none;
+      // }
     }
   }
 }

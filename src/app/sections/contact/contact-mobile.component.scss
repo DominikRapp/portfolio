@@ -15,6 +15,15 @@
             width: auto;
         }
     }
+
+    .contact-toast {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        max-width: none;
+        transform: translateY(120%);
+        animation: contact-toast-slide-in-mobile 0.35s ease-out forwards;
+    }
 }
 
 @media screen and (max-width: 650px) {
@@ -42,5 +51,17 @@
         label {
             font-size: 22px;
         }
+    }
+}
+
+@keyframes contact-toast-slide-in-mobile {
+    from {
+        opacity: 0;
+        transform: translateY(120%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

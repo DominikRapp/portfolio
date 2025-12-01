@@ -68,22 +68,33 @@
                     #privacyConsentControl="ngModel" required [attr.aria-label]="t('contact.privacy.checkboxLabel')" />
                 <p>
                     {{ t('contact.privacy.text.beforeLink') }}
-                    <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">
+                    <a routerLink="privacy-policy" rel="noopener noreferrer">
                         {{ t('contact.privacy.linkLabel') }}
                     </a>
                     {{ t('contact.privacy.text.afterLink') }}
                 </p>
             </div>
 
-            <p class="field-error privacy-error" [class.privacy-error-visible]="contactForm.submitted && privacyConsentControl.invalid">
+            <p class="field-error privacy-error"
+                [class.privacy-error-visible]="contactForm.submitted && privacyConsentControl.invalid">
                 {{ t('contact.privacy.error') }}
             </p>
 
             <div class="btn-help">
-                <button type="submit">
+                <button type="submit" [disabled]="isSubmitting || cooldownRemaining > 0">
                     {{ t('contact.button.submit') }}
                 </button>
             </div>
+
+            <p class="field-error cooldown-message" *ngIf="cooldownRemaining > 0">
+                {{ t('contact.cooldown.prefix') }}
+                {{ cooldownRemaining }}
+                {{ t('contact.cooldown.suffix') }}
+            </p>
         </form>
     </div>
 </section>
+
+<div class="contact-toast contact-toast--success" *ngIf="successVisible" role="status" aria-live="polite">
+    {{ t('contact.feedback.success') }}
+</div>

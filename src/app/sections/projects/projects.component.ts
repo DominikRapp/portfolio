@@ -28,7 +28,7 @@ export class ProjectsComponent {
       descriptionKey: 'projects.join.description',
       image: 'assets/img/join-overlay.jpg',
       techs: ['HTML', 'CSS', 'JavaScript', 'Firebase'],
-      links: { github: '#', live: '#' },
+      links: { github: 'https://github.com/DominikRapp/Join', live: 'https://join.dominik-rapp.at' },
     },
     epl: {
       id: '02',
@@ -36,7 +36,7 @@ export class ProjectsComponent {
       descriptionKey: 'projects.epl.description',
       image: 'assets/img/epl-overlay.jpg',
       techs: ['HTML', 'CSS', 'JavaScript', 'Firebase'],
-      links: { github: '#', live: '#' },
+      links: { github: 'https://github.com/DominikRapp/el-pollo-loco', live: 'https://el-pollo-loco.dominik-rapp.at' },
     },
     daba: {
       id: '03',

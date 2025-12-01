@@ -1,18 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { ChangeDetectionStrategy, Component, inject, } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnDestroy,
+  inject,
+} from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { TranslationService } from '../../core/translation.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterLink],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss','./contact-mobile.component.scss',],
+  styleUrls: ['./contact.component.scss', './contact-mobile.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContactComponent {
+export class ContactComponent implements OnDestroy {
   http = inject(HttpClient);
 
   contactData = {
@@ -20,26 +27,31 @@ export class ContactComponent {
     email: '',
     message: '',
   };
-
   privacyConsent = false;
-  mailTest = true;
-
+  mailTest = false;
   isNameFocused = false;
   isEmailFocused = false;
   isMessageFocused = false;
+  successVisible = false;
+  isSubmitting = false;
+  cooldownRemaining = 0;
 
-  constructor(private translation: TranslationService) { }
+  private cooldownEndTime = 0;
+  private cooldownTimerId: number | null = null;
+  private readonly SUCCESS_TOAST_DURATION = 3000;
+  private readonly COOLDOWN_MS = 60000;
+
+  constructor(
+    private translation: TranslationService,
+    private cdr: ChangeDetectorRef
+  ) { }
 
   t(key: string): string {
     return this.translation.t(key);
   }
 
   getNamePlaceholder(nameControl: NgModel, form: NgForm): string {
-    const hasError =
-      form.submitted &&
-      nameControl.invalid &&
-      !this.isNameFocused &&
-      !this.contactData.name;
+    const hasError = form.submitted && nameControl.invalid && !this.isNameFocused && !this.contactData.name;
     if (hasError) {
       return this.t('contact.placeholder.nameError');
     }
@@ -47,11 +59,7 @@ export class ContactComponent {
   }
 
   getEmailPlaceholder(emailControl: NgModel, form: NgForm): string {
-    const hasError =
-      form.submitted &&
-      emailControl.invalid &&
-      !this.isEmailFocused &&
-      !this.contactData.email;
+    const hasError = form.submitted && emailControl.invalid && !this.isEmailFocused && !this.contactData.email;
     if (hasError) {
       return this.t('contact.placeholder.emailError');
     }
@@ -59,42 +67,124 @@ export class ContactComponent {
   }
 
   getMessagePlaceholder(messageControl: NgModel, form: NgForm): string {
-    const hasError =
-      form.submitted &&
-      messageControl.invalid &&
-      !this.isMessageFocused &&
-      !this.contactData.message;
+    const hasError = form.submitted && messageControl.invalid && !this.isMessageFocused && !this.contactData.message;
     if (hasError) {
       return this.t('contact.placeholder.messageError');
     }
     return this.t('contact.placeholder.message');
   }
 
-  onSubmit(ngForm: NgForm): void {
-    const isValid = ngForm.submitted && ngForm.form.valid;
-    if (!isValid) {
+  onSubmit(form: NgForm): void {
+    if (!this.canSubmit(form)) {
       return;
     }
     if (this.mailTest) {
-      ngForm.resetForm();
+      this.handleSuccess(form);
       return;
     }
+    this.sendMail(form);
+  }
+
+  canSubmit(form: NgForm): boolean {
+    if (this.isSubmitting) {
+      return false;
+    }
+    if (!form.form.valid) {
+      return false;
+    }
+    if (this.isInCooldown()) {
+      this.updateCooldown();
+      return false;
+    }
+    return true;
+  }
+
+  isInCooldown(): boolean {
+    if (!this.cooldownEndTime) {
+      return false;
+    }
+    const now = Date.now();
+    return now < this.cooldownEndTime;
+  }
+
+  sendMail(form: NgForm): void {
+    this.isSubmitting = true;
+    this.cdr.markForCheck();
     this.http
-      .post(this.post.endPoint, this.post.body(this.contactData))
+      .post(this.post.endPoint, this.post.body(this.contactData),
+        this.post.options
+      )
       .subscribe({
-        next: () => ngForm.resetForm(),
-        error: (error) => console.error(error),
+        next: () => {
+          this.isSubmitting = false;
+          this.handleSuccess(form);
+        },
+        error: (error) => {
+          console.error(error);
+          this.isSubmitting = false;
+          this.cdr.markForCheck();
+        },
       });
   }
 
+  handleSuccess(form: NgForm): void {
+    form.resetForm();
+    this.privacyConsent = false;
+    this.showSuccessToast();
+    this.startCooldown();
+  }
+
   post = {
-    endPoint: 'https://deineDomain.de/sendMail.php',
+    endPoint: 'https://dominik-rapp.at/sendMail.php',
     body: (payload: unknown) => JSON.stringify(payload),
     options: {
       headers: {
         'Content-Type': 'text/plain',
-        responseType: 'text',
       },
+      responseType: 'text' as const,
     },
   };
+
+  showSuccessToast(): void {
+    this.successVisible = true;
+    this.cdr.markForCheck();
+    window.setTimeout(() => {
+      this.successVisible = false;
+      this.cdr.markForCheck();
+    }, this.SUCCESS_TOAST_DURATION);
+  }
+
+  startCooldown(): void {
+    this.cooldownEndTime = Date.now() + this.COOLDOWN_MS;
+    this.updateCooldown();
+    if (this.cooldownTimerId !== null) {
+      clearInterval(this.cooldownTimerId);
+    }
+    this.cooldownTimerId = window.setInterval(() => {
+      this.updateCooldown();
+    }, 1000);
+  }
+
+  updateCooldown(): void {
+    const now = Date.now();
+    const remainingMs = this.cooldownEndTime - now;
+    if (remainingMs <= 0) {
+      this.cooldownRemaining = 0;
+      this.clearCooldownTimer();
+    } else {
+      this.cooldownRemaining = Math.ceil(remainingMs / 1000);
+    }
+    this.cdr.markForCheck();
+  }
+
+  clearCooldownTimer(): void {
+    if (this.cooldownTimerId !== null) {
+      clearInterval(this.cooldownTimerId);
+      this.cooldownTimerId = null;
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.clearCooldownTimer();
+  }
 }

@@ -53,6 +53,10 @@ export class HeaderComponent implements OnInit {
 
   private syncFromHash(): void {
     const h = window.location.hash.replace('#', '');
-    this.activeId.set(h || 'about');
+    if (h) {
+      this.activeId.set(h);
+    } else {
+      this.activeId.set('');
+    }
   }
 }

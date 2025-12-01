@@ -1,6 +1,6 @@
 @media screen and (max-width: 1400px) {
     .overlay-card {
-        padding: 24px;
+        padding: 12px;
         gap: 0px;
 
         .overlay-left {
@@ -22,7 +22,11 @@
         display: flex;
         flex-direction: column-reverse;
         gap: 0;
-        padding: 20px 8px !important;
+
+        .overlay-media {
+            display: flex !important;
+            justify-content: center !important;
+        }
 
         .overlay-id {
             font-size: 62px !important;
@@ -33,6 +37,11 @@
             padding-bottom: 20px;
         }
 
+        .overlay-title {
+            justify-content: center;
+            padding-bottom: 0px !important;
+        }
+
         .overlay-left {
             max-width: 560px !important;
         }
@@ -41,6 +50,7 @@
     .mobile {
         display: flex !important;
         justify-content: center;
+        padding-bottom: 0px;
 
         .link-btn {
             display: flex;
@@ -84,6 +94,7 @@
     }
 
     .overlay-card {
+        padding-top: 24px;
 
         .overlay-left {
 
@@ -93,16 +104,48 @@
 
             .overlay-question {
                 padding-bottom: 0px !important;
+                font-size: 20px !important;
             }
 
             .overlay-desc {
                 padding-bottom: 0px !important;
-                margin-bottom: 35px !important;
+                margin-bottom: 0px !important;
+                font-size: 16px !important;
+                height: 85px !important;
             }
 
             h2 {
-                font-size: 32px !important;
+                font-size: 24px !important;
+            }
+
+            .overlay-id {
+                font-size: 48px !important;
+            }
+
+            .overlay-actions {
+                padding-bottom: 12px;
             }
         }
+    }
+
+    .btn {
+        height: 45px !important;
+        width: 130px !important;
+        font-size: 16px !important;
+    }
+
+    .tech-badges {
+        padding-bottom: 12px !important;
+    }
+
+    .overlay-media {
+
+        img {
+            max-width: 65% !important;
+        }
+    }
+
+    .close-btn {
+        height: 0px !important;
     }
 }
