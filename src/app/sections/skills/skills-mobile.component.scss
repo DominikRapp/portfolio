@@ -1,5 +1,5 @@
 @media screen and (max-width: 1350px) {
-    .skill-section {
+    .max-content {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .skill-section {
+    .max-content {
         padding: 40px 16px;
     }
 
@@ -18,7 +18,7 @@
 }
 
 @media screen and (max-width: 670px) {
-    .skill-section {
+    .max-content {
         padding: 40px 16px;
     }
 

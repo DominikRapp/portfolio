@@ -1,3 +1,5 @@
+@import 'aos/dist/aos.css';
+
 :root {
   --page-max: 1920px;
 }
@@ -62,10 +64,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: block;
   width: 100%;
-  max-width: var(--page-max);
   margin-left: auto;
   margin-right: auto;
-  overflow-x: hidden;
 }
 
 img,
@@ -86,15 +86,8 @@ section,
 footer {
   display: block;
   width: 100%;
-  max-width: var(--page-max);
   margin-left: auto;
   margin-right: auto;
-}
-
-body>* {
-  display: block;
-  width: 100%;
-  max-width: var(--page-max);
 }
 
 .cursor-shadow {
@@ -121,7 +114,6 @@ body>* {
   --mat-dialog-container-color: transparent;
   border-radius: 30px;
   background-color: transparent;
-  overflow: hidden;
 }
 
 .project-dialog-panel .overlay-card {

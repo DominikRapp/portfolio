@@ -1,101 +1,106 @@
-<section class="projects-section" aria-labelledby="projects-title">
-    <p class="section-eyebrow">
-        {{ t('projects.eyebrow') }}
-    </p>
+<div class="max-content">
+    <section class="projects-section" aria-labelledby="projects-title">
+        <p class="section-eyebrow">
+            {{ t('projects.eyebrow') }}
+        </p>
 
-    <h2 id="projects-title" class="section-title">
-        {{ t('projects.title') }}
-    </h2>
+        <h2 id="projects-title" class="section-title">
+            {{ t('projects.title') }}
+        </h2>
 
-    <p class="section-lead">
-        {{ t('projects.lead') }}
-    </p>
+        <p class="section-lead">
+            {{ t('projects.lead') }}
+        </p>
 
-    <ul class="project-list">
-        <li class="project-item">
-            <button class="project-link" type="button" [attr.aria-label]="t('projects.join.aria')"
-                aria-haspopup="dialog" (click)="openProject('join')"
-                (mouseenter)="showPreview('assets/img/join.jpg', 'top')"
-                (focus)="showPreview('assets/img/join.jpg', 'top')" (mouseleave)="hidePreview()" (blur)="hidePreview()">
-                <span class="project-name">
-                    Join
-                </span>
-
-                <span class="tech-list" [attr.aria-label]="t('projects.techList.label')">
-                    <span>HTML</span>
-                    <span class="tech-divider" aria-hidden="true">
-                        |
+        <ul class="project-list">
+            <li class="project-item">
+                <button class="project-link" type="button" [attr.aria-label]="t('projects.join.aria')"
+                    aria-haspopup="dialog" (click)="openProject('join')"
+                    (mouseenter)="showPreview('assets/img/join.jpg', 'top')"
+                    (focus)="showPreview('assets/img/join.jpg', 'top')" (mouseleave)="hidePreview()"
+                    (blur)="hidePreview()">
+                    <span class="project-name">
+                        Join
                     </span>
-                    <span>CSS</span>
-                    <span class="tech-divider" aria-hidden="true">
-                        |
-                    </span>
-                    <span>JavaScript</span>
-                    <span class="tech-divider" aria-hidden="true">
-                        |
-                    </span>
-                    <span>Firebase</span>
-                </span>
-            </button>
-        </li>
 
-        <li class="project-item">
-            <button class="project-link" type="button" [attr.aria-label]="t('projects.epl.aria')" aria-haspopup="dialog"
-                (click)="openProject('epl')" (mouseenter)="showPreview('assets/img/epl.jpg', 'middle')"
-                (focus)="showPreview('assets/img/epl.jpg', 'middle')" (mouseleave)="hidePreview()"
-                (blur)="hidePreview()">
-                <span class="project-name">
-                    El Pollo Loco
-                </span>
+                    <span class="tech-list" [attr.aria-label]="t('projects.techList.label')">
+                        <span>HTML</span>
+                        <span class="tech-divider" aria-hidden="true">
+                            |
+                        </span>
+                        <span>CSS</span>
+                        <span class="tech-divider" aria-hidden="true">
+                            |
+                        </span>
+                        <span>JavaScript</span>
+                        <span class="tech-divider" aria-hidden="true">
+                            |
+                        </span>
+                        <span>Firebase</span>
+                    </span>
+                </button>
+            </li>
 
-                <span class="tech-list" [attr.aria-label]="t('projects.techList.label')">
-                    <span>HTML</span>
-                    <span class="tech-divider" aria-hidden="true">
-                        |
+            <li class="project-item last-project-border-bottom">
+                <button class="project-link" type="button" [attr.aria-label]="t('projects.epl.aria')"
+                    aria-haspopup="dialog" (click)="openProject('epl')"
+                    (mouseenter)="showPreview('assets/img/epl.jpg', 'middle')"
+                    (focus)="showPreview('assets/img/epl.jpg', 'middle')" (mouseleave)="hidePreview()"
+                    (blur)="hidePreview()">
+                    <span class="project-name">
+                        El Pollo Loco
                     </span>
-                    <span>CSS</span>
-                    <span class="tech-divider" aria-hidden="true">
-                        |
-                    </span>
-                    <span>JavaScript</span>
-                    <span class="tech-divider" aria-hidden="true">
-                        |
-                    </span>
-                    <span>Firebase</span>
-                </span>
-            </button>
-        </li>
 
-        <li class="project-item last-project-border-bottom">
-            <button class="project-link" type="button" [attr.aria-label]="t('projects.daba.aria')"
-                aria-haspopup="dialog" (click)="openProject('daba')"
-                (mouseenter)="showPreview('assets/img/daba.jpg', 'bottom')"
-                (focus)="showPreview('assets/img/daba.jpg', 'bottom')" (mouseleave)="hidePreview()"
-                (blur)="hidePreview()">
-                <span class="project-name">
-                    DA Bubble
-                </span>
-
-                <span class="tech-list" [attr.aria-label]="t('projects.techList.label')">
-                    <span>Angular</span>
-                    <span class="tech-divider" aria-hidden="true">
-                        |
+                    <span class="tech-list" [attr.aria-label]="t('projects.techList.label')">
+                        <span>HTML</span>
+                        <span class="tech-divider" aria-hidden="true">
+                            |
+                        </span>
+                        <span>CSS</span>
+                        <span class="tech-divider" aria-hidden="true">
+                            |
+                        </span>
+                        <span>JavaScript</span>
+                        <span class="tech-divider" aria-hidden="true">
+                            |
+                        </span>
+                        <span>Firebase</span>
                     </span>
-                    <span>TypeScript</span>
-                    <span class="tech-divider" aria-hidden="true">
-                        |
-                    </span>
-                    <span>Firebase</span>
-                </span>
-            </button>
-        </li>
-    </ul>
+                </button>
+            </li>
 
-    <div class="project-preview" [class.show]="previewVisible" [class.pos-top]="previewPos === 'top'"
-        [class.pos-middle]="previewPos === 'middle'" [class.pos-bottom]="previewPos === 'bottom'" aria-hidden="true">
-        @if (previewSrc) {
-        <img [src]="previewSrc" alt="" draggable="false" />
-        }
-        <div class="preview-stripes" aria-hidden="true"></div>
-    </div>
-</section>
+            <!-- <li class="project-item last-project-border-bottom">
+                <button class="project-link" type="button" [attr.aria-label]="t('projects.daba.aria')"
+                    aria-haspopup="dialog" (click)="openProject('daba')"
+                    (mouseenter)="showPreview('assets/img/daba.jpg', 'bottom')"
+                    (focus)="showPreview('assets/img/daba.jpg', 'bottom')" (mouseleave)="hidePreview()"
+                    (blur)="hidePreview()">
+                    <span class="project-name">
+                        DA Bubble
+                    </span>
+
+                    <span class="tech-list" [attr.aria-label]="t('projects.techList.label')">
+                        <span>Angular</span>
+                        <span class="tech-divider" aria-hidden="true">
+                            |
+                        </span>
+                        <span>TypeScript</span>
+                        <span class="tech-divider" aria-hidden="true">
+                            |
+                        </span>
+                        <span>Firebase</span>
+                    </span>
+                </button>
+            </li> -->
+        </ul>
+
+        <div class="project-preview" [class.show]="previewVisible" [class.pos-top]="previewPos === 'top'"
+            [class.pos-middle]="previewPos === 'middle'" [class.pos-bottom]="previewPos === 'bottom'"
+            aria-hidden="true">
+            @if (previewSrc) {
+            <img [src]="previewSrc" alt="" draggable="false" />
+            }
+            <div class="preview-stripes" aria-hidden="true"></div>
+        </div>
+    </section>
+</div>

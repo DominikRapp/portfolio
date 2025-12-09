@@ -1,6 +1,6 @@
 @media screen and (max-width: 1400px) {
     .overlay-card {
-        padding: 12px;
+        padding: 24px;
         gap: 0px;
 
         .overlay-left {
@@ -44,6 +44,18 @@
 
         .overlay-left {
             max-width: 560px !important;
+        }
+
+        .overlay-question {
+            padding-bottom: 12px !important;
+        }
+
+        .overlay-desc {
+            padding-bottom: 24px !important;
+        }
+
+        .tech-badges {
+            padding-bottom: 24px !important;
         }
     }
 

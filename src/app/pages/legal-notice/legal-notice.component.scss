@@ -1,5 +1,6 @@
 :host {
-    display: block;
+    display: flex;   /* ⬅ host wird selbst Flex-Container */
+    flex: 1;         /* ⬅ füllt den ganzen main-Bereich aus */
     background: linear-gradient(35deg,
             var(--color-bg-start) 0%,
             var(--color-bg-start) 40%,
@@ -7,12 +8,9 @@
             var(--color-bg-end) 100%);
 }
 
-.text-white {
-    color: var(--color-text-white);
-}
-
 .legal-notice {
     max-width: 1440px;
+    margin: 0 auto;      /* ⬅ schön zentriert innerhalb vom Host */
     padding: 80px 24px;
     font-family: Karla Var, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--color-accent);
@@ -32,6 +30,10 @@
     p {
         font-size: 16px;
     }
+}
+
+.text-white {
+    color: var(--color-text-white);
 }
 
 .legal-notice-header {

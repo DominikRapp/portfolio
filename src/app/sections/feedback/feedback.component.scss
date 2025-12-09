@@ -2,6 +2,9 @@
   color: var(--color-text-white);
   padding-top: 80px;
   padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .feedback-header {
@@ -18,6 +21,8 @@
   font-size: 36px;
   line-height: 44px;
   color: var(--color-accent);
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .feedback-viewport {
@@ -32,6 +37,7 @@
       var(--color-fadeout) 100px,
       var(--color-fadeout) calc(100% - 100px),
       transparent);
+  max-width: 1920px;
 }
 
 .card-section {

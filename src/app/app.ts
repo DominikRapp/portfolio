@@ -2,6 +2,8 @@ import { Component, AfterViewInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 @Component({
   selector: 'app-root',
@@ -36,5 +38,12 @@ export class App implements AfterViewInit {
     const existing = document.querySelector('.cursor-shadow') as HTMLElement | null;
     const node = existing ?? this.createCursorShadow();
     this.attachCursorShadow(node);
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out',
+      once: true, 
+      offset: 100,
+    });
+    setTimeout(() => AOS.refresh(), 100);
   }
 }

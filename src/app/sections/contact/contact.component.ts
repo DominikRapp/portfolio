@@ -59,12 +59,15 @@ export class ContactComponent implements OnDestroy {
   }
 
   getEmailPlaceholder(emailControl: NgModel, form: NgForm): string {
-    const hasError = form.submitted && emailControl.invalid && !this.isEmailFocused && !this.contactData.email;
-    if (hasError) {
-      return this.t('contact.placeholder.emailError');
+    const defaultText = this.t('contact.placeholder.email');
+
+    if (!form.submitted && !emailControl.touched) {
+      return defaultText;
     }
-    return this.t('contact.placeholder.email');
+
+    return defaultText;
   }
+
 
   getMessagePlaceholder(messageControl: NgModel, form: NgForm): string {
     const hasError = form.submitted && messageControl.invalid && !this.isMessageFocused && !this.contactData.message;
