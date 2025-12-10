@@ -1,6 +1,6 @@
 <header>
     <div class="max-bg">
-        <a class="logo-mobile" href="#home" aria-label="Mobile logo">
+        <a class="logo-mobile" href="#home" aria-label="Mobile logo" (click)="onHeaderLogoClick($event)">
             <span class="letters">
                 <span class="d-mirrored">D</span>
                 <span class="r-normal">R</span>
@@ -36,7 +36,7 @@
             </nav>
         </div>
 
-        <a class="logo" href="#home" [attr.aria-label]="t('header.logo.label')">
+        <a class="logo" href="#home" [attr.aria-label]="t('header.logo.label')" (click)="onHeaderLogoClick($event)">
             <span class="letters">
                 <span class="d-mirrored">D</span>
                 <span class="r-normal">R</span>

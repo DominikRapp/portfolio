@@ -125,6 +125,24 @@ footer {
       var(--color-bg-end) 100%);
 }
 
+.mdc-dialog--open .mat-mdc-dialog-inner-container {
+  opacity: 1;
+  margin: 16px;
+}
+
+@media screen and (max-width: 400px) {
+  .mdc-dialog--open .mat-mdc-dialog-inner-container {
+    margin: 8px;
+  }
+}
+
+@media screen and (max-width: 323px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
+
 /* nur Debug */
 // * {
 //   outline: 1px solid red;

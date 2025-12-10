@@ -4,7 +4,9 @@ import { ProjectOverlayComponent, ProjectData, ProjectPayload, } from './project
 import { TranslationService } from '../../core/translation.service';
 
 type PreviewPos = 'top' | 'middle' | 'bottom';
-type ProjectKey = 'join' | 'epl' | 'daba';
+//  | 'daba'
+type ProjectKey = 'join' | 'epl';
+
 
 @Component({
   selector: 'app-projects',
@@ -19,8 +21,17 @@ export class ProjectsComponent {
   previewVisible = false;
   previewPos: PreviewPos = 'top';
 
-  private readonly order: ProjectKey[] = ['join', 'epl', 'daba'];
+  // , 'daba'
+  private readonly order: ProjectKey[] = ['join', 'epl'];
 
+  // daba: {
+  //       id: '03',
+  //       title: 'DABubble',
+  //       descriptionKey: 'projects.daba.description',
+  //       image: 'assets/img/daba-overlay.jpg',
+  //       techs: ['Angular', 'TypeScript', 'Firebase'],
+  //       links: { github: '#', live: '#' },
+  //     },
   private readonly projectsMap: Record<ProjectKey, ProjectData> = {
     join: {
       id: '01',
@@ -37,14 +48,6 @@ export class ProjectsComponent {
       image: 'assets/img/epl-overlay.jpg',
       techs: ['HTML', 'CSS', 'JavaScript', 'Firebase'],
       links: { github: 'https://github.com/DominikRapp/el-pollo-loco', live: 'https://el-pollo-loco.dominik-rapp.at' },
-    },
-    daba: {
-      id: '03',
-      title: 'DABubble',
-      descriptionKey: 'projects.daba.description',
-      image: 'assets/img/daba-overlay.jpg',
-      techs: ['Angular', 'TypeScript', 'Firebase'],
-      links: { github: '#', live: '#' },
     },
   };
 

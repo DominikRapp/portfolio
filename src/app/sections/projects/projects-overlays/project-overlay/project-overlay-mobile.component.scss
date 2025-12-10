@@ -161,3 +161,13 @@
         height: 0px !important;
     }
 }
+
+@media screen and (max-width: 370px) {
+    .overlay-card[_ngcontent-ng-c2654430083] .overlay-left[_ngcontent-ng-c2654430083] .overlay-desc[_ngcontent-ng-c2654430083] {
+        height: 100px !important;
+    }
+
+    .overlay-card[_ngcontent-ng-c2654430083] .overlay-left[_ngcontent-ng-c2654430083] .overlay-body[_ngcontent-ng-c2654430083] .overlay-text[_ngcontent-ng-c2654430083] .tech-badges[_ngcontent-ng-c2654430083] {
+        gap: 8px;
+    }
+}

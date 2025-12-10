@@ -42,6 +42,11 @@ export class HeaderComponent implements OnInit {
     this.activeId.set(id);
   }
 
+  onHeaderLogoClick(event: MouseEvent): void {
+    event.preventDefault();
+    window.location.reload();
+  }
+
   @HostListener('window:hashchange')
   onHashChange(): void {
     this.syncFromHash();

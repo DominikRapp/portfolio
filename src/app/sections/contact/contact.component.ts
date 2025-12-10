@@ -51,31 +51,147 @@ export class ContactComponent implements OnDestroy {
   }
 
   getNamePlaceholder(nameControl: NgModel, form: NgForm): string {
-    const hasError = form.submitted && nameControl.invalid && !this.isNameFocused && !this.contactData.name;
+    const hasError =
+      form.submitted && nameControl.invalid && !this.isNameFocused;
     if (hasError) {
       return this.t('contact.placeholder.nameError');
     }
     return this.t('contact.placeholder.name');
   }
 
-  getEmailPlaceholder(emailControl: NgModel, form: NgForm): string {
-    const defaultText = this.t('contact.placeholder.email');
-
-    if (!form.submitted && !emailControl.touched) {
-      return defaultText;
-    }
-
-    return defaultText;
+  getEmailPlaceholder(_: NgModel, __: NgForm): string {
+    return this.t('contact.placeholder.email');
   }
 
-
   getMessagePlaceholder(messageControl: NgModel, form: NgForm): string {
-    const hasError = form.submitted && messageControl.invalid && !this.isMessageFocused && !this.contactData.message;
+    const hasError =
+      form.submitted && messageControl.invalid && !this.isMessageFocused;
     if (hasError) {
       return this.t('contact.placeholder.messageError');
     }
     return this.t('contact.placeholder.message');
   }
+
+  shouldShowFieldError(control: NgModel, form: NgForm): boolean {
+    if (this.cooldownRemaining > 0) {
+      return false;
+    }
+    if (!control) {
+      return false;
+    }
+
+    const invalid = !!control.invalid;
+    const interacted = !!(control.dirty || control.touched);
+
+    return invalid && (interacted || form.submitted);
+  }
+
+  shouldShowNameError(control: NgModel, form: NgForm): boolean {
+    if (this.cooldownRemaining > 0 || !control) {
+      return false;
+    }
+
+    const value = String(control.value ?? '');
+    const invalid = !!control.invalid;
+    const interacted = !!(control.dirty || control.touched || form.submitted);
+
+    if (!invalid || !interacted) {
+      return false;
+    }
+
+    const threeSpacesInRow = value.includes('   ');
+    const doubleHyphen = value.includes('--');
+    const endsWithSoft = value.endsWith(' ') || value.endsWith('-');
+
+    if (endsWithSoft && !threeSpacesInRow && !doubleHyphen) {
+      return false;
+    }
+
+    return true;
+  }
+
+  shouldShowEmailError(control: NgModel, form: NgForm): boolean {
+    if (this.cooldownRemaining > 0 || !control) {
+      return false;
+    }
+
+    const invalid = !!control.invalid;
+    const blurred = !!control.touched;
+    const submitted = form.submitted;
+
+    return invalid && (blurred || submitted);
+  }
+
+  getNameErrorText(control: NgModel, form: NgForm): string {
+    if (!this.shouldShowNameError(control, form)) {
+      return '';
+    }
+
+    if (control.errors?.['required']) {
+      return this.t('contact.placeholder.nameMissing');
+    }
+
+    if (control.errors?.['pattern']) {
+      return this.t('contact.placeholder.nameError');
+    }
+
+    return this.t('contact.placeholder.nameError');
+  }
+
+  getEmailErrorText(control: NgModel, form: NgForm): string {
+    if (!this.shouldShowEmailError(control, form)) {
+      return '';
+    }
+
+    if (control.errors?.['required']) {
+      return this.t('contact.placeholder.emailMissing');
+    }
+
+    if (control.errors?.['email'] || control.errors?.['pattern']) {
+      return this.t('contact.placeholder.emailError');
+    }
+
+    return this.t('contact.placeholder.emailError');
+  }
+
+  getMessageErrorText(control: NgModel, form: NgForm): string {
+    if (!this.shouldShowFieldError(control, form)) {
+      return '';
+    }
+    if (control.errors?.['required']) {
+      return this.t('contact.placeholder.messageMissing');
+    }
+    if (control.errors?.['pattern']) {
+      return this.t('contact.placeholder.messageError');
+    }
+    return this.t('contact.placeholder.messageError');
+  }
+
+  shouldShowPrivacyError(
+    nameControl: NgModel,
+    emailControl: NgModel,
+    messageControl: NgModel,
+    privacyControl: NgModel,
+    form: NgForm
+  ): boolean {
+    if (this.cooldownRemaining > 0) {
+      return false;
+    }
+    if (!form.submitted) {
+      return false;
+    }
+    if (!nameControl?.valid) {
+      return false;
+    }
+    if (!emailControl?.valid) {
+      return false;
+    }
+    if (!messageControl?.valid) {
+      return false;
+    }
+    return !!privacyControl?.invalid;
+  }
+
 
   onSubmit(form: NgForm): void {
     if (!this.canSubmit(form)) {
@@ -114,7 +230,9 @@ export class ContactComponent implements OnDestroy {
     this.isSubmitting = true;
     this.cdr.markForCheck();
     this.http
-      .post(this.post.endPoint, this.post.body(this.contactData),
+      .post(
+        this.post.endPoint,
+        this.post.body(this.contactData),
         this.post.options
       )
       .subscribe({

@@ -254,23 +254,10 @@ section[aria-labelledby="contact-heading"] {
         overflow: hidden;
     }
 
-    .input-box {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-left: 32px;
-        padding-right: 32px;
-        margin: 0;
-        gap: 10px;
-        border-top: 1px solid var(--color-border);
-        height: 131px;
-        cursor: pointer;
-    }
-
     .input-box-email {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-evenly;
         padding-left: 32px;
         padding-right: 32px;
         margin: 0;
@@ -282,7 +269,8 @@ section[aria-labelledby="contact-heading"] {
 
     .input-box-bottom {
         border-bottom: 1px solid var(--color-border);
-        margin-bottom: 40px;
+        margin-bottom: 40px !important;
+        visibility: visible !important;
     }
 
     .input-box:hover,
@@ -317,14 +305,18 @@ section[aria-labelledby="contact-heading"] {
         color: var(--color-text-error);
     }
 
-    .email-error {
+    .email-error,
+    .name-error,
+    .message-error {
         height: 24px;
         display: flex;
         align-items: center;
         visibility: hidden;
     }
 
-    .email-error-visible {
+    .email-error-visible,
+    .name-error-visible,
+    .message-error-visible {
         visibility: visible;
         padding-left: 32px;
     }
@@ -344,6 +336,7 @@ section[aria-labelledby="contact-heading"] {
 
     .cooldown-message {
         margin-top: 16px;
+        color: var(--color-text-white);
     }
 }
 

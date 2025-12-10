@@ -1,5 +1,4 @@
 <section aria-labelledby="contact-heading">
-
     <article>
         <h4>
             {{ t('contact.section.label') }}
@@ -28,44 +27,50 @@
 
     <div>
         <form autocomplete="off" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
-            <div class="input-box" (click)="nameInput.focus()">
+
+            <div class="input-box-email" (click)="nameInput.focus()">
                 <label for="name">
                     {{ t('contact.label.name') }}
                 </label>
                 <input #nameInput #nameControl="ngModel" [(ngModel)]="contactData.name" id="name" name="name"
-                    type="text" autocomplete="off" required [placeholder]="getNamePlaceholder(nameControl, contactForm)"
-                    (focus)="isNameFocused = true" (blur)="isNameFocused = false"
-                    [class.input-error]="contactForm.submitted && nameControl.invalid && !isNameFocused && !contactData.name" />
+                    type="text" autocomplete="off" required pattern="^[A-Za-zÀ-ž]+(?:(?: {1,2}| ?- ?)[A-Za-zÀ-ž]+)*$"
+                    [placeholder]="getNamePlaceholder(nameControl, contactForm)" (focus)="isNameFocused = true"
+                    (blur)="isNameFocused = false" />
             </div>
+            <p class="field-error name-error"
+                [class.name-error-visible]="shouldShowNameError(nameControl, contactForm)">
+                {{ getNameErrorText(nameControl, contactForm) }}
+            </p>
 
             <div class="input-box-email" (click)="emailInput.focus()">
                 <label for="email">
                     {{ t('contact.label.email') }}
                 </label>
-
                 <input #emailInput #emailControl="ngModel" [(ngModel)]="contactData.email" id="email" name="email"
                     type="email" autocomplete="off" required
                     pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9\-]+(?:\.[a-zA-Z0-9\-]+)+$"
                     [placeholder]="getEmailPlaceholder(emailControl, contactForm)" (focus)="isEmailFocused = true"
-                    (blur)="isEmailFocused = false"
-                    [class.input-error]="contactForm.submitted && emailControl.invalid && !isEmailFocused" />
+                    (blur)="isEmailFocused = false" />
             </div>
             <p class="field-error email-error"
-                [class.email-error-visible]="contactForm.submitted && emailControl.invalid">
-                {{ t('contact.placeholder.emailError') }}
+                [class.email-error-visible]="shouldShowEmailError(emailControl, contactForm)">
+                {{ getEmailErrorText(emailControl, contactForm) }}
             </p>
 
-
-            <div class="input-box input-box-bottom" (click)="messageInput.focus()">
+            <div class="input-box-email" (click)="messageInput.focus()">
                 <label for="message">
                     {{ t('contact.label.message') }}
                 </label>
                 <textarea #messageInput #messageControl="ngModel" [(ngModel)]="contactData.message" id="message"
-                    name="message" required [placeholder]="getMessagePlaceholder(messageControl, contactForm)"
-                    (focus)="isMessageFocused = true" (blur)="isMessageFocused = false"
-                    [class.input-error]="contactForm.submitted && messageControl.invalid && !isMessageFocused && !contactData.message">
-                </textarea>
+                    name="message" required pattern=".*\S.*"
+                    [placeholder]="getMessagePlaceholder(messageControl, contactForm)" (focus)="isMessageFocused = true"
+                    (blur)="isMessageFocused = false">
+        </textarea>
             </div>
+            <p class="field-error message-error input-box-bottom"
+                [class.message-error-visible]="shouldShowFieldError(messageControl, contactForm)">
+                {{ getMessageErrorText(messageControl, contactForm) }}
+            </p>
 
             <div class="privacy-consent">
                 <input type="checkbox" id="privacyConsent" name="privacyConsent" [(ngModel)]="privacyConsent"
@@ -79,15 +84,15 @@
                 </p>
             </div>
 
-            <p class="field-error privacy-error"
-                [class.privacy-error-visible]="contactForm.submitted && privacyConsentControl.invalid">
+            <p class="field-error privacy-error" [class.privacy-error-visible]="shouldShowPrivacyError(nameControl, emailControl, messageControl, privacyConsentControl, contactForm)">
                 {{ t('contact.privacy.error') }}
             </p>
 
             <div class="btn-help">
-                <button type="submit" [disabled]="isSubmitting || cooldownRemaining > 0">
+                <button type="submit" [disabled]="isSubmitting || cooldownRemaining > 0 || !nameControl.valid || !emailControl.valid || !messageControl.valid">
                     {{ t('contact.button.submit') }}
                 </button>
+
             </div>
 
             <p class="field-error cooldown-message" *ngIf="cooldownRemaining > 0">

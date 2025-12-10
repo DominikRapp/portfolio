@@ -16,4 +16,12 @@ export class FooterComponent {
   t(key: string): string {
     return this.translation.t(key);
   }
+
+  onFooterLogoClick(event: MouseEvent): void {
+    event.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
 }
