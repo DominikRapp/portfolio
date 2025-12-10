@@ -1,12 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  OnDestroy,
-  inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, inject, } from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { TranslationService } from '../../core/translation.service';
 import { RouterLink } from '@angular/router';
@@ -35,11 +29,11 @@ export class ContactComponent implements OnDestroy {
   successVisible = false;
   isSubmitting = false;
   cooldownRemaining = 0;
-
   private cooldownEndTime = 0;
   private cooldownTimerId: number | null = null;
   private readonly SUCCESS_TOAST_DURATION = 3000;
   private readonly COOLDOWN_MS = 60000;
+  readonly maxMessageLength = 500;
 
   constructor(
     private translation: TranslationService,
@@ -49,6 +43,26 @@ export class ContactComponent implements OnDestroy {
   t(key: string): string {
     return this.translation.t(key);
   }
+
+  getMessageLength(): number {
+    const value = this.contactData.message ?? '';
+    return value.length;
+  }
+
+  isMessageAtLimit(): boolean {
+    return this.getMessageLength() >= this.maxMessageLength;
+  }
+
+  onMessageInput(control: NgModel): void {
+    const current = this.contactData.message ?? '';
+    if (current.length <= this.maxMessageLength) {
+      return;
+    }
+    const trimmed = current.slice(0, this.maxMessageLength);
+    this.contactData.message = trimmed;
+    control.control.setValue(trimmed, { emitEvent: false });
+  }
+
 
   getNamePlaceholder(nameControl: NgModel, form: NgForm): string {
     const hasError =
@@ -79,10 +93,8 @@ export class ContactComponent implements OnDestroy {
     if (!control) {
       return false;
     }
-
     const invalid = !!control.invalid;
     const interacted = !!(control.dirty || control.touched);
-
     return invalid && (interacted || form.submitted);
   }
 
@@ -114,11 +126,9 @@ export class ContactComponent implements OnDestroy {
     if (this.cooldownRemaining > 0 || !control) {
       return false;
     }
-
     const invalid = !!control.invalid;
     const blurred = !!control.touched;
     const submitted = form.submitted;
-
     return invalid && (blurred || submitted);
   }
 
@@ -142,29 +152,20 @@ export class ContactComponent implements OnDestroy {
     if (!this.shouldShowEmailError(control, form)) {
       return '';
     }
-
     if (control.errors?.['required']) {
       return this.t('contact.placeholder.emailMissing');
     }
-
     if (control.errors?.['email'] || control.errors?.['pattern']) {
       return this.t('contact.placeholder.emailError');
     }
-
     return this.t('contact.placeholder.emailError');
   }
 
   getMessageErrorText(control: NgModel, form: NgForm): string {
-    if (!this.shouldShowFieldError(control, form)) {
+    if (!this.shouldShowMessageError(control, form)) {
       return '';
     }
-    if (control.errors?.['required']) {
-      return this.t('contact.placeholder.messageMissing');
-    }
-    if (control.errors?.['pattern']) {
-      return this.t('contact.placeholder.messageError');
-    }
-    return this.t('contact.placeholder.messageError');
+    return this.t('contact.placeholder.messageMissing');
   }
 
   shouldShowPrivacyError(
@@ -192,6 +193,15 @@ export class ContactComponent implements OnDestroy {
     return !!privacyControl?.invalid;
   }
 
+  shouldShowMessageError(control: NgModel, form: NgForm): boolean {
+    if (this.cooldownRemaining > 0 || !control) {
+      return false;
+    }
+    const value = String(control.value ?? '');
+    const isEmpty = value.trim().length === 0;
+    const interacted = !!(control.dirty || control.touched || form.submitted);
+    return isEmpty && interacted;
+  }
 
   onSubmit(form: NgForm): void {
     if (!this.canSubmit(form)) {
@@ -206,6 +216,10 @@ export class ContactComponent implements OnDestroy {
 
   canSubmit(form: NgForm): boolean {
     if (this.isSubmitting) {
+      return false;
+    }
+    const message = this.contactData.message ?? '';
+    if (message.trim().length === 0) {
       return false;
     }
     if (!form.form.valid) {

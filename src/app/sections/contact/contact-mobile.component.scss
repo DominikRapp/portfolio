@@ -28,7 +28,16 @@
 
 @media screen and (max-width: 650px) {
     section[aria-labelledby="contact-heading"] {
-        .input-box-email {
+        .input-box {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        .message-counter {
+            padding-right: 8px;
+        }
+
+        .input-box-message {
             padding-left: 8px;
             padding-right: 8px;
         }

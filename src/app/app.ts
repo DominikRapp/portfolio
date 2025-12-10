@@ -3,17 +3,24 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+import 'aos/dist/aos.css';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App implements AfterViewInit {
   protected readonly title = signal('portfolio');
+
+  ngAfterViewInit(): void {
+    const existing = document.querySelector('.cursor-shadow') as HTMLElement | null;
+    const node = existing ?? this.createCursorShadow();
+    this.attachCursorShadow(node);
+    this.initAos();
+  }
 
   private createCursorShadow(): HTMLElement {
     const el = document.createElement('div');
@@ -34,16 +41,15 @@ export class App implements AfterViewInit {
     window.addEventListener('pointermove', onMove, { passive: true });
   }
 
-  ngAfterViewInit(): void {
-    const existing = document.querySelector('.cursor-shadow') as HTMLElement | null;
-    const node = existing ?? this.createCursorShadow();
-    this.attachCursorShadow(node);
+  private initAos(): void {
     AOS.init({
       duration: 800,
       easing: 'ease-out',
-      once: true, 
+      once: true,
       offset: 100,
+      debounceDelay: 100,
+      throttleDelay: 120,
     });
-    setTimeout(() => AOS.refresh(), 100);
+    window.setTimeout(() => AOS.refresh(), 100);
   }
 }

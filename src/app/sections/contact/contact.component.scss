@@ -5,7 +5,48 @@ section[aria-labelledby="contact-heading"] {
     color: var(--color-text-white);
     margin: 0;
     max-width: 1920px;
-
+    textarea {
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-accent) transparent;
+    }
+    textarea::-webkit-scrollbar {
+        width: 8px;
+    }
+    textarea::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    textarea::-webkit-scrollbar-thumb {
+        background-color: var(--color-accent);
+        border-radius: 8px;
+        border: 2px solid transparent;
+        background-clip: content-box;
+        transition: background-color 150ms ease;
+    }
+    textarea::-webkit-scrollbar-thumb:hover {
+        background-color: var(--color-text-white);
+    }
+    .message-error {
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .message-error-text {
+        visibility: hidden;
+    }
+    .message-error-visible {
+        visibility: visible;
+        padding-left: 32px;
+    }
+    .message-counter {
+        font-size: 16px;
+        font-family: Karla Var, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--color-text-white);
+        padding-right: 32px;
+    }
+    .message-counter-limit {
+        color: var(--color-text-error);
+    }
     input:-webkit-autofill,
     input:-webkit-autofill:hover,
     input:-webkit-autofill:focus,
@@ -17,19 +58,16 @@ section[aria-labelledby="contact-heading"] {
         caret-color: var(--color-text-white);
         transition: background-color 9999s ease-out;
     }
-
     input:autofill,
     textarea:autofill {
         -webkit-text-fill-color: var(--color-text-white);
         box-shadow: 0 0 0 1000px transparent inset;
         caret-color: var(--color-text-white);
     }
-
     article {
         margin: 0;
         max-width: 568px;
     }
-
     article h4 {
         font-size: 24px;
         color: var(--color-accent);
@@ -39,7 +77,6 @@ section[aria-labelledby="contact-heading"] {
         margin-bottom: 20px;
         padding: 0;
     }
-
     article h2 {
         font-size: 64px;
         color: var(--color-accent);
@@ -50,7 +87,6 @@ section[aria-labelledby="contact-heading"] {
         line-height: 60px;
         margin-bottom: 36px;
     }
-
     article p {
         font-size: 16px;
         color: var(--color-text-white);
@@ -60,7 +96,6 @@ section[aria-labelledby="contact-heading"] {
         padding: 0;
         margin-bottom: 20px;
     }
-
     article .question {
         font-size: 24px;
         color: var(--color-accent);
@@ -70,20 +105,17 @@ section[aria-labelledby="contact-heading"] {
         padding: 0;
         margin-bottom: 20px;
     }
-
     article p span {
         color: var(--color-accent);
         font-weight: 700;
         margin: 0;
         padding: 0;
     }
-
     .privacy-consent {
         display: flex;
         align-items: center;
         gap: 12px;
         padding: 0;
-
         p {
             font-size: 16px;
             color: var(--color-text-white);
@@ -92,7 +124,6 @@ section[aria-labelledby="contact-heading"] {
             margin: 0;
         }
     }
-
     .privacy-consent input[type="checkbox"] {
         appearance: none;
         -webkit-appearance: none;
@@ -109,7 +140,6 @@ section[aria-labelledby="contact-heading"] {
         margin: 0;
         flex-shrink: 0;
     }
-
     .privacy-consent input[type="checkbox"]::before {
         content: "";
         position: absolute;
@@ -119,13 +149,11 @@ section[aria-labelledby="contact-heading"] {
         transform: scale(0);
         transition: background-color 150ms ease, transform 150ms ease;
     }
-
     .privacy-consent input[type="checkbox"]:hover::before,
     .privacy-consent input[type="checkbox"]:focus-visible::before {
         background-color: #3dcfb7a4;
         transform: scale(1);
     }
-
     .privacy-consent input[type="checkbox"]::after {
         content: "";
         width: 10px;
@@ -135,19 +163,15 @@ section[aria-labelledby="contact-heading"] {
         transform: rotate(-45deg);
         transition: border-color 150ms ease;
     }
-
     .privacy-consent input[type="checkbox"]:checked::after {
         border-color: var(--color-accent);
     }
-
     .privacy-consent input[type="checkbox"]:focus-visible {
         outline: 2px solid var(--color-accent);
         outline-offset: 3px;
     }
-
     .privacy-consent a {
         color: var(--color-accent);
-
         &:hover {
             color: var(--color-text-white);
             text-decoration: underline var(--color-accent);
@@ -155,7 +179,6 @@ section[aria-labelledby="contact-heading"] {
             text-decoration-thickness: 2px;
         }
     }
-
     button[type="submit"] {
         display: inline-flex;
         align-items: center;
@@ -172,29 +195,24 @@ section[aria-labelledby="contact-heading"] {
         border: 1px solid var(--color-text-white);
         text-decoration: none;
         transition: color 175ms ease, border-color 175ms ease, background-color 175ms ease;
-
         &:hover {
             color: var(--color-accent);
             border-color: var(--color-accent);
         }
-
         &:focus-visible {
             outline: 2px solid var(--color-accent);
             outline-offset: 2px;
         }
-
         &:disabled {
             opacity: 0.4;
             cursor: not-allowed;
         }
     }
-
     .btn-help {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 30px;
-
         p {
             font-size: 18px;
             font-weight: 400;
@@ -206,19 +224,16 @@ section[aria-labelledby="contact-heading"] {
             }
         }
     }
-
     div {
         display: flex;
         padding: 0;
     }
-
     form {
         width: 600px;
         display: flex;
         flex-direction: column;
         padding: 0;
     }
-
     label {
         display: block;
         margin: 0;
@@ -229,7 +244,6 @@ section[aria-labelledby="contact-heading"] {
         padding: 0;
         cursor: pointer;
     }
-
     input,
     textarea {
         width: 100%;
@@ -242,53 +256,58 @@ section[aria-labelledby="contact-heading"] {
         cursor: text;
         color: var(--color-text-white);
     }
-
     input:focus,
     textarea:focus {
         outline: none;
     }
-
     textarea {
-        height: 32px;
+        height: 40px;
         resize: none;
-        overflow: hidden;
+        overflow: unset;
     }
-
-    .input-box-email {
+    .input-box {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         padding-left: 32px;
         padding-right: 32px;
         margin: 0;
-        gap: 10px;
+        gap: 0px;
         border-top: 1px solid var(--color-border);
         height: 107px;
         cursor: pointer;
     }
-
+    .input-box-message {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding-left: 32px;
+        padding-right: 32px;
+        margin: 0;
+        gap: 0px;
+        border-top: 1px solid var(--color-border);
+        height: 107px;
+        cursor: pointer;
+        padding-top: 16px;
+    }
     .input-box-bottom {
         border-bottom: 1px solid var(--color-border);
         margin-bottom: 40px !important;
         visibility: visible !important;
     }
-
     .input-box:hover,
     .input-box:focus-within {
         border-top-color: var(--color-accent);
     }
-
     .input-box-bottom:hover,
     .input-box-bottom:focus-within {
         border-bottom-color: var(--color-accent);
     }
-
     input::placeholder,
     textarea::placeholder {
         color: var(--color-text-white);
         padding: 0;
     }
-
     .input-error::placeholder {
         color: var(--color-text-error);
         font-size: 18px;
@@ -296,7 +315,6 @@ section[aria-labelledby="contact-heading"] {
         font-weight: 400;
         opacity: 1;
     }
-
     .field-error {
         margin: 0;
         font-size: 16px;
@@ -304,7 +322,6 @@ section[aria-labelledby="contact-heading"] {
         font-weight: 400;
         color: var(--color-text-error);
     }
-
     .email-error,
     .name-error,
     .message-error {
@@ -313,14 +330,12 @@ section[aria-labelledby="contact-heading"] {
         align-items: center;
         visibility: hidden;
     }
-
     .email-error-visible,
     .name-error-visible,
     .message-error-visible {
         visibility: visible;
         padding-left: 32px;
     }
-
     .privacy-error {
         margin: 0px;
         margin-bottom: 8px;
@@ -329,17 +344,14 @@ section[aria-labelledby="contact-heading"] {
         display: flex;
         align-items: center;
     }
-
     .privacy-error-visible {
         visibility: visible;
     }
-
     .cooldown-message {
         margin-top: 16px;
         color: var(--color-text-white);
     }
 }
-
 .contact-toast {
     position: fixed;
     left: 50%;
@@ -355,26 +367,21 @@ section[aria-labelledby="contact-heading"] {
         "Segoe UI", sans-serif;
     box-shadow: 0 28px 55px rgba(0, 0, 0, 0.55);
     z-index: 9999;
-
     display: flex;
     align-items: center;
     gap: 16px;
-
     opacity: 0;
     transform: translate(-50%, 260%);
     animation: contact-toast-slide-in 0.5s ease-out forwards;
 }
-
 .contact-toast--success {
     border-left: 10px solid var(--color-accent);
 }
-
 @keyframes contact-toast-slide-in {
     from {
         opacity: 0;
         transform: translate(-50%, 260%);
     }
-
     to {
         opacity: 1;
         transform: translate(-50%, 0);

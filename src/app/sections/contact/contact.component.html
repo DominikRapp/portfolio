@@ -28,7 +28,7 @@
     <div>
         <form autocomplete="off" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
 
-            <div class="input-box-email" (click)="nameInput.focus()">
+            <div class="input-box" (click)="nameInput.focus()">
                 <label for="name">
                     {{ t('contact.label.name') }}
                 </label>
@@ -42,7 +42,7 @@
                 {{ getNameErrorText(nameControl, contactForm) }}
             </p>
 
-            <div class="input-box-email" (click)="emailInput.focus()">
+            <div class="input-box" (click)="emailInput.focus()">
                 <label for="email">
                     {{ t('contact.label.email') }}
                 </label>
@@ -57,19 +57,26 @@
                 {{ getEmailErrorText(emailControl, contactForm) }}
             </p>
 
-            <div class="input-box-email" (click)="messageInput.focus()">
+            <div class="input-box-message" (click)="messageInput.focus()">
                 <label for="message">
                     {{ t('contact.label.message') }}
                 </label>
                 <textarea #messageInput #messageControl="ngModel" [(ngModel)]="contactData.message" id="message"
-                    name="message" required pattern=".*\S.*"
-                    [placeholder]="getMessagePlaceholder(messageControl, contactForm)" (focus)="isMessageFocused = true"
-                    (blur)="isMessageFocused = false">
-        </textarea>
+                    name="message" required [placeholder]="getMessagePlaceholder(messageControl, contactForm)"
+                    (focus)="isMessageFocused = true" (blur)="isMessageFocused = false"
+                    (input)="onMessageInput(messageControl)">
+                </textarea>
             </div>
-            <p class="field-error message-error input-box-bottom"
-                [class.message-error-visible]="shouldShowFieldError(messageControl, contactForm)">
-                {{ getMessageErrorText(messageControl, contactForm) }}
+
+            <p class="field-error message-error input-box-bottom">
+                <span class="message-error-text"
+                    [class.message-error-visible]="shouldShowMessageError(messageControl, contactForm)">
+                    {{ getMessageErrorText(messageControl, contactForm) }}
+                </span>
+
+                <span class="message-counter" [class.message-counter-limit]="isMessageAtLimit()">
+                    {{ getMessageLength() }} / {{ maxMessageLength }}
+                </span>
             </p>
 
             <div class="privacy-consent">
@@ -84,12 +91,14 @@
                 </p>
             </div>
 
-            <p class="field-error privacy-error" [class.privacy-error-visible]="shouldShowPrivacyError(nameControl, emailControl, messageControl, privacyConsentControl, contactForm)">
+            <p class="field-error privacy-error"
+                [class.privacy-error-visible]="shouldShowPrivacyError(nameControl, emailControl, messageControl, privacyConsentControl, contactForm)">
                 {{ t('contact.privacy.error') }}
             </p>
 
             <div class="btn-help">
-                <button type="submit" [disabled]="isSubmitting || cooldownRemaining > 0 || !nameControl.valid || !emailControl.valid || !messageControl.valid">
+                <button type="submit"
+                    [disabled]="isSubmitting || cooldownRemaining > 0 || !nameControl.valid || !emailControl.valid || !messageControl.valid">
                     {{ t('contact.button.submit') }}
                 </button>
 
