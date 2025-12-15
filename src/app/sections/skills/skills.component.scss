@@ -50,6 +50,7 @@
     --circle-radius: 150px;
     --circle-blur: 100px;
     width: 100%;
+    overflow-x: hidden;
 
     &::before {
         content: "";

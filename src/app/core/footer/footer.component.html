@@ -1,6 +1,7 @@
 <footer class="desktop max-content">
 
-    <div class="footer-left">
+    <div class="footer-left" data-aos="fade-right" data-aos-duration="700" data-aos-easing="ease-out"
+        data-aos-once="true">
         <a class="logo" href="#home" [attr.aria-label]="t('footer.logo.label')" (click)="onFooterLogoClick($event)">
             <span class="letters">
                 <span class="d-mirrored">D</span>
@@ -11,40 +12,22 @@
                 <span>Rapp</span>
             </span>
         </a>
-        <p>
-            {{ t('footer.role') }}
-        </p>
-        <p>
-            {{ t('footer.location') }}
-        </p>
+        <p>{{ t('footer.role') }}</p>
+        <p>{{ t('footer.location') }}</p>
     </div>
 
     <p class="footer-mid">
         &copy; 2025 Dominik Rapp
     </p>
 
-    <nav class="footer-right" [attr.aria-label]="t('footer.nav.label')">
+    <nav class="footer-right" [attr.aria-label]="t('footer.nav.label')" data-aos="fade-left" data-aos-duration="700"
+        data-aos-easing="ease-out" data-aos-once="true">
         <ul>
-            <li>
-                <a href="https://github.com/DominikRapp" target="_blank" rel="noopener noreferrer">
-                    Github
-                </a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/in/dominik-rapp-393407326/" target="_blank" rel="noopener noreferrer">
-                    LinkedIn
-                </a>
-            </li>
-            <li>
-                <a href="mailto:rapp.dominik@hotmail.com">
-                    {{ t('footer.link.email') }}
-                </a>
-            </li>
-            <li>
-                <a routerLink="legal-notice">
-                    {{ t('footer.link.legal') }}
-                </a>
-            </li>
+            <li><a href="https://github.com/DominikRapp" target="_blank" rel="noopener noreferrer">Github</a></li>
+            <li><a href="https://www.linkedin.com/in/dominik-rapp-393407326/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="mailto:rapp.dominik@hotmail.com">{{ t('footer.link.email') }}</a></li>
+            <li><a routerLink="legal-notice">{{ t('footer.link.legal') }}</a></li>
         </ul>
     </nav>
 
@@ -54,7 +37,8 @@
 
     <div class="footer-top">
 
-        <div class="footer-left">
+        <div class="footer-left" data-aos="fade-right" data-aos-duration="700" data-aos-easing="ease-out"
+            data-aos-once="true">
             <a class="logo" href="#home" [attr.aria-label]="t('footer.logo.label')" (click)="onFooterLogoClick($event)">
                 <span class="letters">
                     <span class="d-mirrored">D</span>
@@ -73,7 +57,8 @@
             </p>
         </div>
 
-        <nav class="footer-right" [attr.aria-label]="t('footer.nav.label')">
+        <nav class="footer-right" [attr.aria-label]="t('footer.nav.label')" data-aos="fade-left" data-aos-duration="700"
+            data-aos-easing="ease-out" data-aos-once="true">
             <ul>
                 <li>
                     <a href="https://github.com/DominikRapp" target="_blank" rel="noopener noreferrer">

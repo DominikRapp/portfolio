@@ -1,7 +1,8 @@
 <div class="max-bg">
     <section aria-labelledby="hero-title">
         <div class="wrapper">
-            <div class="headline">
+            <div class="headline" class="headline" data-aos="fade-up" data-aos-duration="900" data-aos-easing="ease-out"
+                data-aos-once="true">
                 <div>
                     <h3>
                         {{ t('hero.role') }}
@@ -21,7 +22,8 @@
                 </div>
             </div>
 
-            <div class="info-scroll-animation">
+            <div class="info-scroll-animation" data-aos="fade" data-aos-duration="700" data-aos-delay="200"
+                data-aos-once="true">
                 <div class="scroll-animation" aria-hidden="true">
                     <svg class="mouse-outline" width="30" height="48" viewBox="0 0 30 48" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +44,7 @@
                 </svg>
             </div>
 
-            <div class="sm-links">
+            <div class="sm-links" data-aos="fade" data-aos-duration="700" data-aos-delay="300" data-aos-once="true">
                 <div class="desktop">
                     <a class="mail-vertical-up" href="mailto:rapp.dominik@hotmail.com">
                         rapp.dominik@hotmail.com
@@ -81,7 +83,7 @@
         </div>
 
         <div class="animated-banner" [attr.aria-label]="t('hero.banner.ariaLabel')" [attr.data-aos]="'fade-up'"
-            [attr.data-aos-delay]="150">
+            [attr.data-aos-delay]="150" [attr.data-aos-duration]="900" [attr.data-aos-once]="true">
             <div class="marquee-text">
                 <div class="marquee-text-track">
                     <span>{{ t('hero.banner.basedIn') }}</span>

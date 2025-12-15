@@ -5,6 +5,7 @@ section[aria-labelledby="contact-heading"] {
     color: var(--color-text-white);
     margin: 0;
     max-width: 1920px;
+    overflow-x: hidden;
     textarea {
         scrollbar-width: thin;
         scrollbar-color: var(--color-accent) transparent;

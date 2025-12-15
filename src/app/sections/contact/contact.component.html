@@ -1,5 +1,5 @@
 <section aria-labelledby="contact-heading">
-    <article>
+    <article data-aos="fade-right" data-aos-duration="900" data-aos-easing="ease-out" data-aos-once="true">
         <h4>
             {{ t('contact.section.label') }}
         </h4>
@@ -25,7 +25,7 @@
         </p>
     </article>
 
-    <div>
+    <div data-aos="fade-left" data-aos-duration="900" data-aos-easing="ease-out" data-aos-once="true">
         <form autocomplete="off" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
 
             <div class="input-box" (click)="nameInput.focus()">

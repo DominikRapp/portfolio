@@ -1,11 +1,7 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  HostListener,
-  OnInit,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, OnInit, signal, } from '@angular/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { Router } from '@angular/router';
+import AOS from 'aos';
 import { TranslationService, AppLang } from '../translation.service';
 import { BurgermenuComponent } from './burgermenu/burgermenu.component';
 
@@ -20,7 +16,10 @@ import { BurgermenuComponent } from './burgermenu/burgermenu.component';
 export class HeaderComponent implements OnInit {
   readonly activeId = signal<string>('');
 
-  constructor(private translation: TranslationService) { }
+  constructor(
+    private translation: TranslationService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.syncFromHash();
@@ -44,7 +43,7 @@ export class HeaderComponent implements OnInit {
 
   onHeaderLogoClick(event: MouseEvent): void {
     event.preventDefault();
-    window.location.reload();
+    this.goHomeAndReset();
   }
 
   @HostListener('window:hashchange')
@@ -57,11 +56,22 @@ export class HeaderComponent implements OnInit {
   }
 
   private syncFromHash(): void {
-    const h = window.location.hash.replace('#', '');
-    if (h) {
-      this.activeId.set(h);
-    } else {
-      this.activeId.set('');
-    }
+    const hash = window.location.hash.replace('#', '');
+    this.activeId.set(hash ? hash : '');
+  }
+
+  private goHomeAndReset(): void {
+    this.activeId.set('');
+    window.location.hash = '';
+    void this.router.navigateByUrl('/').then(() => {
+      requestAnimationFrame(() => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth',
+        });
+        AOS.refreshHard();
+      });
+    });
   }
 }

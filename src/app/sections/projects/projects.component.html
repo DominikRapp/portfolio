@@ -1,19 +1,21 @@
 <div class="max-content">
     <section class="projects-section" aria-labelledby="projects-title">
-        <p class="section-eyebrow">
+        <p class="section-eyebrow" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
             {{ t('projects.eyebrow') }}
         </p>
 
-        <h2 id="projects-title" class="section-title">
+        <h2 id="projects-title" class="section-title" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100"
+            data-aos-once="true">
             {{ t('projects.title') }}
         </h2>
 
-        <p class="section-lead">
+        <p class="section-lead" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200" data-aos-once="true">
             {{ t('projects.lead') }}
         </p>
 
         <ul class="project-list">
-            <li class="project-item">
+            <li class="project-item" data-aos="fade-up" data-aos-duration="700" data-aos-delay="150"
+                data-aos-once="true">
                 <button class="project-link" type="button" [attr.aria-label]="t('projects.join.aria')"
                     aria-haspopup="dialog" (click)="openProject('join')"
                     (mouseenter)="showPreview('assets/img/join.jpg', 'top')"
@@ -41,7 +43,8 @@
                 </button>
             </li>
 
-            <li class="project-item last-project-border-bottom">
+            <li class="project-item last-project-border-bottom" data-aos="fade-up" data-aos-duration="700"
+                data-aos-delay="250" data-aos-once="true">
                 <button class="project-link" type="button" [attr.aria-label]="t('projects.epl.aria')"
                     aria-haspopup="dialog" (click)="openProject('epl')"
                     (mouseenter)="showPreview('assets/img/epl.jpg', 'middle')"
